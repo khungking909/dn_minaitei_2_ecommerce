@@ -1,4 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def full_title(page_title = "")
+    default_title = t("default_title")
+    page_title.empty? ? default_title : "#{default_title} | #{page_title}"
+  end
+
+  def upercase(string)
+    string.upcase
+  end
 end

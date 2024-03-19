@@ -1,1 +1,16 @@
 en:
+  default_title: "StereoCar"
+  accounts:
+    register_success: "Create New Account Successfully!!"
+    sign_up: "Create New Customer Account"
+    personal_information: "Personal Information"
+    sign_in_information: "Sign-in Information"
+    create: "CREATE AN ACCOUNT"
+  place_holder:
+    name: "Enter your name *"
+    email: "Enter your email *"
+    address: "Enter your address *"
+    phone_number: "Enter your phone number *"
+    password: "Enter your password *"
+    password_confirmation: "Enter your passwordconfirmation *"
+  back: "back"
