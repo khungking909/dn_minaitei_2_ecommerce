@@ -6,4 +6,6 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :orders, through: :order_histories
   has_many :accounts, through: :comments
+
+  scope :get_all_by_name_sort, -> { order("name") }
 end
