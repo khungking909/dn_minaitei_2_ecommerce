@@ -1,7 +1,8 @@
 
 inherit_from:
-  - ".rubocop-rails.yml"
-  - ".rubocop-rspec.yml"
+  - .rubocop_todo.yml
+  - .rubocop-rails.yml
+  - .rubocop-rspec.yml
 
 require:
   - rubocop-rails
@@ -268,7 +269,7 @@ Style/MethodCallWithArgsParentheses:
   Enabled: true
 
 Style/MissingElse:
-  Enabled: true
+  Enabled: false
 
 Style/MultilineMethodSignature:
   Enabled: true
