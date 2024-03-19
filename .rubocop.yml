@@ -12,6 +12,7 @@ AllCops:
   TargetRubyVersion: 2.7
   TargetRailsVersion: 6.0
   Exclude:
+    - "**/db/schema.rb"
     - "**/config/boot.rb"
     - "**/config/puma.rb"
     - "**/db/migrate/*"
