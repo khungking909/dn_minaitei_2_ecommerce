@@ -6,7 +6,7 @@ module ApplicationHelper
     page_title.empty? ? default_title : "#{default_title} | #{page_title}"
   end
 
-  def upercase(string)
+  def uppercase(string)
     string.upcase
   end
 end

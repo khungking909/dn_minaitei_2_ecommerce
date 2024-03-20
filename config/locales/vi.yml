@@ -6,6 +6,10 @@ vi:
     personal_information: "Thông tin cá nhân"
     sign_in_information: "Thông tin đăng nhập"
     create: "Tạo mới tài khoản"
+    login_customer: "Đăng nhập"
+    login_customer_message: "Nếu bạn có tài khoản, hãy đăng nhập bằng địa chỉ email của bạn."
+    register_customer_message: "Tạo tài khoản có nhiều lợi ích: thanh toán nhanh hơn, giữ nhiều địa chỉ, theo dõi đơn hàng và hơn thế nữa."
+    rediect_login: "Tạo mới Khách hàng"
   place_holder:
     name: "Nhập tên của bạn *"
     email: "Nhập email của bạn *"
@@ -14,3 +18,9 @@ vi:
     password: "Nhập mật khẩu của bạn *"
     password_confirmation: "Nhập xác nhận mật khẩu của bạn *"
   back: "Quay lại"
+  sessions:
+    login_success: "Đăng nhập thành công!!!"
+    login_email_err: "Email không hợp lệ!!!"
+    login_password_err: "Mật khẩu không đúng!!!"
+    foget_password: "Quên mật khẩu?"
+    submit_btn: "ĐĂNG NHẬP"

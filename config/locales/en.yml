@@ -6,6 +6,10 @@ en:
     personal_information: "Personal Information"
     sign_in_information: "Sign-in Information"
     create: "CREATE AN ACCOUNT"
+    login_customer: "Customers Login"
+    login_customer_message: "If you have an account, sign in with your email address."
+    rediect_login: "New Customers"
+    register_customer_message: "Creating an account has many benefits: check out faster, keep more than one address, track orders and more."
   place_holder:
     name: "Enter your name *"
     email: "Enter your email *"
@@ -14,3 +18,9 @@ en:
     password: "Enter your password *"
     password_confirmation: "Enter your passwordconfirmation *"
   back: "back"
+  sessions:
+    login_success: "Login Successfully!!!"
+    login_email_err: "Invalid email!!!"
+    login_password_err: "Invalid password!!!"
+    foget_password: "Forgot your password?"
+    submit_btn: "SIGN IN"
