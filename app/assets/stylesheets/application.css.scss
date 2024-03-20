@@ -1,0 +1,39 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+#error_explanation
+{
+  color: red
+}
+.sign-up-title
+{
+  font-weight: bold;
+  font-size: 35px;
+}
+.new_account
+{
+  display: flex;
+  flex-direction: column;
+  input
+  {
+    margin: 10px 0px 10px 0px;
+    height: 45px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+  }
+  .form-btn-back
+  {
+      color: white;
+      background-color: #f4291a;
+      font-weight: bold;
+      border: #f4291a solid 2px;
+      padding: 10px 50px 10px 50px;
+  }
+  .form-btn-submit
+  {
+    border: 4px #f4291a solid;
+    padding: 0px 50px 0px 50px;
+    background-color: #fff;
+    font-weight: bold;
+  }
+}

@@ -1,1 +1,16 @@
 vi:
+  default_title: "StereoCar"
+  accounts:
+    register_success: "Tạo tài khoản thành công"
+    sign_up: "Tạo tài khoản khách hàng mới"
+    personal_information: "Thông tin cá nhân"
+    sign_in_information: "Thông tin đăng nhập"
+    create: "Tạo mới tài khoản"
+  place_holder:
+    name: "Nhập tên của bạn *"
+    email: "Nhập email của bạn *"
+    address: "Nhập địa chỉ của bạn *"
+    phone_number: "Nhập số điện thoại của bạn *"
+    password: "Nhập mật khẩu của bạn *"
+    password_confirmation: "Nhập xác nhận mật khẩu của bạn *"
+  back: "Quay lại"
