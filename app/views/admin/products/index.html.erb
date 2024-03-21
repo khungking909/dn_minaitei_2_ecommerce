@@ -1,0 +1,39 @@
+<div class="d-flex container-admin">
+  <%= render "admin/layouts/sidebar" %>
+  <aside class="col-md-10 ms-5" id="main" >
+    <div class="d-flex align-items-center">
+      <h2><%= t("products.title") %></h2>
+      <%= link_to  new_admin_product_path, class:"main-top-btn-add text-white fw-bold d-flex align-items-center ms-3" do%>
+        <i class="bi bi-plus fw-bold fs-3 me-1" ></i> <%= t("products.insert")%>
+      <% end %>
+    </div>
+    <h5 class="mt-5"><%= t("products.list_title", num: @products.count)%></h5>
+    <hr/>
+    <div>
+      <div class="d-flex">
+        <div class="container-main-mid-search">
+        <span class="ms-2"><%= t("products.name")%></span><input class="ms-2 me-2" type="text"/>
+         <i class="bi bi-search me-2"></i>
+        </div>
+        <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold" do %>
+          <%= t("products.remove_all")%>
+        <% end %>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <table class="mt-5 mb-5 table-products">
+          <tr class="d-flex">
+            <th class="sizing-table-first-column"><%= t("products.ordinal_number")%></th>
+            <th class="sizing-table"><%= t("products.name")%></th>
+            <th class="sizing-table"><%= t("products.producer")%></th>
+            <th class="sizing-table"><%= t("products.price")%></th>
+            <th class="sizing-table"><%= t("products.quantity")%></th>
+            <th class="sizing-table"><%= t("products.outstanding")%></th>
+            <th class="sizing-table"><%= t("products.action")%></th>
+          </tr>
+          <%= render(@products) || t("products.empty") %>
+        </table>
+         <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+      </div>
+    </div>
+  </aside>
+</div>

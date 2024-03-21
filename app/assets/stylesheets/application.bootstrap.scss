@@ -1,0 +1,144 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+#error_explanation {
+  color: red
+}
+
+.sign-up-title {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.new_account {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin: 10px 0px 10px 0px;
+    height: 45px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+  }
+
+  .form-btn-back {
+    color: white;
+    background-color: #f4291a;
+    font-weight: bold;
+    border: #f4291a solid 2px;
+    padding: 10px 50px 10px 50px;
+  }
+
+  .form-btn-submit {
+    border: 4px #f4291a solid;
+    padding: 0px 50px 0px 50px;
+    background-color: #fff;
+    font-weight: bold;
+
+  }
+}
+
+
+.form-btn-back:hover {
+  transition: ease .5s;
+  background-color: #fff;
+  color: black;
+}
+
+.form-btn-submit:hover {
+  transition: ease .5s;
+  background-color: #f4291a;
+  color: #fff;
+}
+
+.forget_password_link {
+  margin-right: 30px;
+}
+
+.btn-redirect {
+  padding: 10px 20px 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: 3px solid #f4291a;
+  text-decoration: none !important;
+  font-weight: bold;
+
+}
+
+.btn-redirect:hover {
+  transition: ease .5s;
+  background-color: #f4291a;
+  color: #fff;
+}
+
+.container-admin {
+  background-color: var(--bs-gray-500);
+  height: 650px;
+
+  .imgae_profile {
+    border-radius: 500px;
+  }
+
+  .nav-selection {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 30px 10px 30px;
+    width: 80%;
+    border-radius: 10px;
+
+  }
+
+  .nav-selection+.nav-selection {
+    margin-top: 15px;
+  }
+
+  .nav-selection:hover {
+    background-color: #000 !important;
+    color: yellow;
+    transition: ease .5s;
+  }
+
+  .sizing-table-first-column {
+    max-width: 100px;
+    min-width: 100px
+  }
+
+  .sizing-table {
+    max-width: 150px;
+    min-width: 150px
+  }
+
+  .main-top-btn-add {
+    padding: 5px 20px 5px 20px;
+    background-color: green;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .main-top-btn-add:hover {
+    background-color: var(--bs-dark-text-emphasis) !important;
+    color: #fff !important;
+    transition: ease .5s;
+  }
+
+  .container-main-mid-search {
+    display: flex;
+    background-color: #fff;
+    padding: 3px 5px 3px 5px;
+    justify-content: space-between;
+    border-radius: 5px;
+
+    input {
+      outline: none;
+      border: none;
+    }
+
+  }
+  .table-products
+  {
+    max-height: 300px;
+
+    min-height: 300px;
+  }
+}

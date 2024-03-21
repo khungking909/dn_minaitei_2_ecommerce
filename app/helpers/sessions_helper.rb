@@ -8,9 +8,9 @@ module SessionsHelper
   end
 
   def current_account
-    if account_id == session[:account_id]
+    if (account_id = session[:account_id])
       @current_account ||= Account.find_by(id: account_id)
-    elsif account_id == cookies.signed[:account_id]
+    elsif (account_id = cookies.signed[:account_id])
       account = Account.find_by(id: account_id)
       if account&.authenticated?(:remember, cookies[:remember_token])
         log_in(account)
@@ -35,6 +35,14 @@ module SessionsHelper
     forget(current_account)
     reset_session
     @current_account = nil
+  end
+
+  def logged_in?
+    current_account.present?
+  end
+
+  def check_admin
+    current_account.admin?
   end
 end
 

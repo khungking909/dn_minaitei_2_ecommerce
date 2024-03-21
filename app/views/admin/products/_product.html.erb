@@ -1,0 +1,28 @@
+<tr style="display:flex; align-items:center; margin-top:10px">
+  <td class="sizing-table-first-column">
+    <%= product_counter + 1 %>
+  </td>
+  <td class="sizing-table">
+    <%= product.name %>
+  </td>
+  <td class="sizing-table">
+    <%= product.category.name %>
+  </td>
+  <td class="sizing-table">
+    <%= product.price %>
+  </td>
+  <td class="sizing-table">
+    <%= product.quantity %>
+  </td>
+  <td class="sizing-table">
+    <i class="bi bi-bookmark-check bg-success bg-gradient fw-bold text-white p-1 rounded ms-3"></i>
+  </td>
+  <td style="max-width: 150px; min-width:150px;">
+    <%= link_to "#", data: { "turbo-method": :delete,turbo_confirm: t("sure") }  do %>
+      <i class="bi bi-pen bg-warning bg-gradient fw-bold text-white rounded p-1"></i>
+    <% end %>
+    <%= link_to "#", data: { "turbo-method": :delete,turbo_confirm: t("sure") } do %>
+       <i class="bi bi-trash bg-danger bg-gradient fw-bold text-white p-1 rounded"></i>
+    <% end %>
+  </td>
+</tr>

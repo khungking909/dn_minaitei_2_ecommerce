@@ -102,7 +102,7 @@ Lint/AmbiguousBlockAssociation:
     - "**/spec/**/*"
 
 Lint/AssignmentInCondition:
-  AllowSafeAssignment: false
+  AllowSafeAssignment: true
 
 Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true

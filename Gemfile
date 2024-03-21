@@ -5,7 +5,6 @@ source "https://rubygems.org"
 ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "bootstrap-sass", "3.4.1"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sassc-rails"
 
@@ -21,6 +20,7 @@ gem "mysql2", "~> 0.5"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+gem "pagy"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -72,3 +72,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "cssbundling-rails", "~> 1.4"
