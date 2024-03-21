@@ -40,3 +40,16 @@ en:
     empty: "Product list empty"
   http_error:
     forbidden: "403 Forbidden"
+  orders:
+    title: "Order"
+    remove_all: "Refuse All"
+    order_code: "Order Code"
+    customer: "Customer"
+    total_products: "Total Products"
+    total_price: "Total Price"
+    empty: "Order list empty"
+    approved: "Approved"
+    reject: "Reject"
+    view: "View"
+    accept: "Accept"
+    refuse: "Refuse"
