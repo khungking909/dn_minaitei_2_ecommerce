@@ -99,6 +99,11 @@
     transition: ease .5s;
   }
 
+  .nav-selection.active {
+    background-color: blue !important;
+
+  }
+
   .sizing-table-first-column {
     max-width: 100px;
     min-width: 100px
@@ -107,6 +112,11 @@
   .sizing-table {
     max-width: 150px;
     min-width: 150px
+  }
+
+  .sizing-table-order {
+    max-width: 170px;
+    min-width: 170px
   }
 
   .main-top-btn-add {
@@ -135,10 +145,23 @@
     }
 
   }
-  .table-products
-  {
-    max-height: 300px;
 
+  .table-products {
+    max-height: 300px;
     min-height: 300px;
+  }
+
+  .table-orders {
+    max-height: 420px;
+    min-height: 420px;
+  }
+
+  .btn-order {
+    min-width: 150px;
+    max-width: 150px;
+  }
+
+  .order-item {
+    min-height: 155px;
   }
 }
