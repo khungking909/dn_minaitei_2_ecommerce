@@ -4,7 +4,10 @@
 #error_explanation {
   color: red
 }
-
+#admin_error_explanation
+{
+  color: red;
+}
 .sign-up-title {
   font-weight: bold;
   font-size: 35px;
@@ -73,7 +76,7 @@
 
 .container-admin {
   background-color: var(--bs-gray-500);
-  height: 650px;
+  height: 800px;
 
   .imgae_profile {
     border-radius: 500px;

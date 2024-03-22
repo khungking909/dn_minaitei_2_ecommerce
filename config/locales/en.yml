@@ -86,3 +86,13 @@ en:
     view: "View"
     accept: "Accept"
     refuse: "Refuse"
+    cancel: "Cancel"
+    not_found: "Not found Order"
+    accept_order: "Accept order of %{name} successfully!!!"
+    refuse_order: "Refuse order of %{name} successfully!!!"
+    status_fails: "Unsuccessful - Order status has changed previously"
+    raise_error: "An error occurred while editing the product quantity!!!"
+  order_histories:
+    account_name: "Order of :"
+    empty: "No Product added with order"
+  sure: "Are you sure?"

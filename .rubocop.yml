@@ -230,7 +230,10 @@ Style/CommandLiteral:
   EnforcedStyle: percent_x
 
 Style/ConstantVisibility:
-  Enabled: true
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
@@ -288,6 +291,9 @@ Style/RedundantFetchBlock:
 
 Style/RedundantFileExtensionInRequire:
   Enabled: true
+
+Style/RedundantFreeze:
+  Enabled: false
 
 Style/RedundantSelfAssignment:
   Enabled: true

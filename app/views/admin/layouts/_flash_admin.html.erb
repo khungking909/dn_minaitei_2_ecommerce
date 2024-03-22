@@ -1,0 +1,16 @@
+<% if flash.present? %>
+  <% case %>
+    <% when flash[:admin_success] %>
+      <div class="alert alert-success mt-3 w-50 text-center">
+        <%= flash[:admin_success] %>
+      </div>
+    <% when flash[:admin_error] %>
+      <div class="alert alert-warning mt-3 w-50 text-center">
+        <%= flash[:admin_error] %>
+      </div>
+       <% when flash[:admin_danger] %>
+      <div class="alert alert-danger mt-3 w-50 text-center">
+        <%= flash[:admin_danger] %>
+      </div>
+  <% end %>
+<% end %>

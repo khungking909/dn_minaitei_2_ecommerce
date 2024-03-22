@@ -86,3 +86,13 @@ vi:
     view: "Xem"
     accept: "Chấp nhận"
     refuse: "Từ chối"
+    cancel: "Hủy"
+    not_found: "Không tìm thấy Order"
+    accept_order: "Chấp nhận order của  %{name} thành công!!!"
+    refuse_order: "Từ chối order của %{name} thành công!!!"
+    status_fails: "Không thành công - Trạng thái đơn hàng đã thay đổi trước đó"
+    raise_error: "Xảy ra lỗi khi sửa số lượng sản phẩm!!!"
+  order_histories:
+    account_name: "Đơn hàng của :"
+    empty: "Không có sản phẩm nào được thêm vào đơn hàng"
+  sure: "Bạn chắc chắn chứ?"

@@ -1,25 +1,30 @@
 <tr class="d-flex align-items-center border rounded ps-5 border-2 border-primary mb-3 bg-light order-item ">
-  <td class="sizing-table-first-column"><%= order_counter + 1 %></td>
-  <td class="sizing-table-order"><%= order.id %></td>
-  <td class="sizing-table-order"><%= order.account.name %></td>
-  <td class="sizing-table-order"><%= order.products.count %></td>
-  <td class="sizing-table-order"><%= total_price order %></td>
-  <td class="sizing-table-order d-flex flex-column">
+  <td class="sizing-table-first-column text-center"><%= order_counter + 1 %></td>
+  <td class="sizing-table-order text-center"><%= order.receiver_name %></td>
+  <td class="sizing-table-order text-center"><%= order.receiver_address %></td>
+  <td class="sizing-table-order text-center">
+     <%= form_for(:order, url: admin_order_path(order), method: :get) do |f| %>
+        <%= f.submit  order.products_count , class: "p-2 pe-4 ps-4 text-center" %>
+      <% end %>
+  </td>
+  <td class="sizing-table-order text-center"><%= total_price order %></td>
+  <td class="sizing-table-order d-flex flex-column text-center" id= <%= "order_action_#{order.id}"%>>
     <% if  order.status_pending? %>
-      <%= form_for(:user, remote: true) do |f| %>
-        <%= f.submit t("orders.accept"), class: "btn btn-outline-success mb-2 mt-2 btn-order text-center" %>
+      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch) do |f| %>
+        <div><%= hidden_field_tag :status, :accept %></div>
+        <%= f.submit t("orders.accept"), class: "btn btn-outline-success mb-2 mt-2 btn-order text-center", data: { "turbo-method": :delete, turbo_confirm: t("sure") } %>
       <% end %>
-      <%= form_for(:user, remote: true) do |f| %>
-        <%= f.submit t("orders.view"), class: "btn btn-outline-danger mb-2 btn-order text-center" %>
-      <% end %>
-      <%= form_for(:user, remote: true) do |f| %>
-        <%= f.submit t("orders.refuse"), class: "btn btn-outline-secondary mb-2 btn-order text-center" %>
+      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch) do |f| %>
+        <div><%= hidden_field_tag :status, :refuse %></div>
+        <%= f.submit t("orders.refuse"), class: "btn btn-outline-secondary mb-2 btn-order text-center", data: { "turbo-method": :delete, turbo_confirm: t("sure") } %>
       <% end %>
 
     <% elsif order.status_approved? %>
       <div class="w-100 text-center fw-bold text-success"><%= t("orders.approved") %></div>
-    <% else%>
+    <% elsif order.status_reject?  %>
       <div class="w-100 text-center fw-bold text-danger"><%= t("orders.reject") %></div>
+    <% else %>
+      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.cancel") %></div>
     <% end %>
   </td>
 </tr>
