@@ -29,9 +29,14 @@
           <th>
             <%= calculate_total_price(@cart) %>
           </th>
-          <th></th>
+          <th>
+            <button id="order_button" class="btn btn-sm btn-primary">
+              <%= t("orders.title") %>
+            </button>
+          </th>
         </tr>
       </tfoot>
     </table>
   <% end %>
+  <%= render "orders/order" %>
 </div>

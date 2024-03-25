@@ -18,6 +18,9 @@ vi:
     login: "Đăng nhập"
     register: "Đăng ký"
     account: "Tài khoản"
+    profile: "Trang cá nhân"
+    logout: "Đăng xuất"
+    order_history: "Lịch sử đơn hàng"
   products:
     title: "Sản phẩm"
     price: "Giá: %{price}"
@@ -108,6 +111,9 @@ vi:
     refuse_order: "Từ chối order của %{name} thành công!!!"
     status_fails: "Không thành công - Trạng thái đơn hàng đã thay đổi trước đó"
     raise_error: "Xảy ra lỗi khi sửa số lượng sản phẩm!!!"
+    full_name: "Họ và tên"
+    address: "Địa chỉ"
+    phone_number: "Số điện thoại"
     mail:
       accepted: "Đơn hàng được chấp nhận!!!"
       refused: "Đơn hàng bị từ chối!!!"
