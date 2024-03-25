@@ -1,10 +1,11 @@
 <div class="container">
+  <%= render "layouts/flash" %>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>
         <tr>
           <th><%= t("orders.columns.id") %></th>
-          <th><%= t("orders.columns.reciever_name") %></th>
+          <th><%= t("orders.columns.receiver_name") %></th>
           <th><%= t("orders.status.title") %></th>
           <th><%= t("orders.columns.quantity") %></th>
           <th><%= t("orders.columns.created_at") %></th>
@@ -22,7 +23,7 @@
             <td><%= order.order_histories.count %></td>
             <td><%= order.created_at %></td>
             <td>
-              <%= link_to t("orders.actions.view"), "#", class: "btn btn-primary btn-sm" %>
+              <%= link_to t("orders.actions.view"), order_path(order), class: "btn btn-primary btn-sm" %>
               <%= check_status(order) %>
             </td>
           </tr>

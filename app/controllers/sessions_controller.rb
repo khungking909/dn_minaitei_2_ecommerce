@@ -11,7 +11,12 @@ class SessionsController < ApplicationController
     log_in(@account)
     remember(@account)
     flash[:success] = t("sessions.login_success")
-    redirect_to(login_path)
+    redirect_to(root_path)
+  end
+
+  def destroy
+    log_out
+    redirect_to(root_url)
   end
 
   private

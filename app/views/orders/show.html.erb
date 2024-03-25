@@ -1,0 +1,53 @@
+<div class="container">
+  <%= render "layouts/flash" %>
+  <h1 class="mt-4"><%= t("orders.order_details") %></h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong><%= t("orders.receiver_name") %>:</strong> <%= @order.receiver_name %></p>
+      <p><strong><%= t("orders.status.title") %>:</strong> <%= order_status_button(@order.status) %></p>
+      <p><strong><%= t("orders.address") %>:</strong> <%= @order.receiver_address %></p>
+      <p><strong><%= t("orders.phone_number") %>:</strong> <%= @order.receiver_phone_number %></p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2><%= t("orders.product_list") %></h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"><%= t("orders.product_name") %></th>
+              <th scope="col"><%= t("orders.quantity") %></th>
+              <th scope="col"><%= t("orders.price") %></th>
+              <th scope="col"><%= t("orders.total_price") %></th>
+              <th scope="col"><%= t("orders.columns.actions") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% total_price = 0 %>
+            <% @order.order_histories.each do |order_history| %>
+              <tr>
+                <td><%= order_history.product.name %></td>
+                <td><%= order_history.quantity %></td>
+                <td><%= number_to_currency(order_history.current_price) %></td>
+                <% subtotal = order_history.quantity * order_history.current_price %>
+                <td><%= number_to_currency(subtotal) %></td>
+                <% total_price += subtotal %>
+                <td>
+                  <%= approved_status(@order) %>
+                </td>
+              </tr>
+            <% end %>
+            <tr>
+              <td colspan="3" class="text-end"><strong><%= t("orders.total_order_price") %>:</strong></td>
+              <td><%= number_to_currency(total_price) %></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
