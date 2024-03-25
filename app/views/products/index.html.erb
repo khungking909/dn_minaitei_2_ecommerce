@@ -11,7 +11,10 @@
     <div class="col-md-9 justify-content-center">
       <%= render "shared/filter" %>
       <div class="row">
-        <%= (render(@products)) || t("products.empty") %>
+        <% @products.each do |product| %>
+          <%= render partial: "products/product", locals: { product: product } %>
+        <% end %>
+        <%= t("products.empty") if @products.empty? %>
       </div>
       <div class="pagination justify-content-center">
         <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>

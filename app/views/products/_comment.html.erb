@@ -1,4 +1,17 @@
-<div class="comment">
-  <p><%= comment.content %></p>
-  <%= render "shared/rating", comment: comment %>
-</div>
+<% comments.each do |comment| %>
+  <div class="comment">
+    <%= comment.account.name %>
+    <div class="product-rating">
+      <% rating = comment.rating ||= 0 %>
+      <% Settings.DIGIT_5.times do |i| %>
+        <% if rating >= i + 1 %>
+          <i class="bi bi-star-fill" style="color: yellow;"></i>
+        <% else %>
+          <i class="bi bi-star" style="color: yellow;"></i>
+        <% end %>
+      <% end %>
+      <span>(<%= rating %>)</span>
+    </div>
+    <%= comment.content ||= "" %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="container">
+  <%= form_with url: product_comments_path(product_id: @product.id), local:true do |f| %>
+    <div class="field form-group">
+    <%= f.label :rating %>
+      <div class="rating">
+        <%= f.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
+          <%= star.radio_button %>
+          <%= star.label(class: "text-white") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="field form-group">
+      <%= f.text_area :content, class: "form-control"%>
+    </div>
+    <div class="actions">
+      <%= f.submit t("orders.actions.review"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

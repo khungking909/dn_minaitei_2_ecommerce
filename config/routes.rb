@@ -3,11 +3,12 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "products#index"
-    resources :products
+    resources :products do
+      resources :comments
+    end
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
-    get "/orders", to: "orders#index", as: "orders"
     resource :cart, only: %i[show create destroy update]
     resources :orders, only: %i[create show index] do
       member do

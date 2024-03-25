@@ -41,7 +41,7 @@ end
 
 brands.each do |brand_name|
   category = Category.create(name: brand_name)
-  5.times do |n|
+  Settings.DIGIT_5.times do |n|
     product = Product.create(
       name: "#{brand_name} Phone #{n + 1}",
       description: "Description for #{brand_name} Phone #{n + 1}",
@@ -51,7 +51,7 @@ brands.each do |brand_name|
       is_deleted: false
     )
 
-    file_path = "/home/huynhductruong/Downloads/image#{n + 1}.jpeg"
+    file_path = "/home/thanhhung/Downloads/image#{n + 1}.jpeg"
     File.open(file_path) do |file|
       product.image.attach(io: file, filename: "#{product.name}.jpg")
     end

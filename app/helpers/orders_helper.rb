@@ -32,9 +32,9 @@ module OrdersHelper
     end
   end
 
-  def approved_status(order)
+  def approved_status(order, order_history)
     return unless order.status == Order::APPROVED_STATUS
 
-    link_to(t("orders.actions.review"), "#", class: "btn btn-success btn-sm")
+    link_to(t("orders.actions.review"), new_product_comment_path(product_id: order_history.product_id), class: "btn btn-success btn-sm")
   end
 end
