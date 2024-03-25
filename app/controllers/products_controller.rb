@@ -10,21 +10,6 @@ class ProductsController < ApplicationController
     @product_outstandings = Product.product_outstanding
   end
 
-  def new
-    @product = Product.new
-  end
-
-  def create
-    product = Product.new(product_params)
-    if product.save
-      flash[:success] = t("products.create.success")
-      redirect_to(products_path)
-    else
-      flash.now[:error] = t("products.create.error")
-      render(:new)
-    end
-  end
-
   def show; end
 
   private
@@ -52,9 +37,5 @@ class ProductsController < ApplicationController
 
     flash[:error] = t("products.load.error")
     redirect_to(products_path)
-  end
-
-  def product_params
-    params.require(:product).permit(:name, :price, :image)
   end
 end

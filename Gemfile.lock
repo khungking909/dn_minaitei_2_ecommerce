@@ -321,6 +321,7 @@ DEPENDENCIES
   byebug
   capybara
   config
+  connection_pool
   cssbundling-rails (~> 1.4)
   debug
   dotenv

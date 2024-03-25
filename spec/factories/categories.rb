@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :category do
-    name { Faker::Name.name }
+    name { %w(Apple Samsung Xiaomi Oppo Huawei Vivo).sample }
   end
 end
