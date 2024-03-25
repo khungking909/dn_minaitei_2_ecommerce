@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <div class="product-item-container">
+    <div class="product-item-info">
+      <%= product_image_tag(product) %>
+      <h4><%= link_to product.name, product_path(product) %></h4>
+      <%= render "shared/rating" %>
+      <p><%= number_to_currency(product.price) %></p>
+      <div class="add-to-cart">
+        <%= button_to t("products.add_to_cart"), "#", method: :post %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,14 @@
+SIZE_50: 50
+SIZE_80: 80
+PAGE_9: 9
+PAGE_10: 10
+SLIDER_IMAGE: "https://ld-magento-72.template-help.com/magento_mag-3683/pub/media/wysiwyg/slide-1.jpg"
+NO_IMAGE: https://www.freeiconspng.com/uploads/no-image-icon-6.png
 DIGIT_50: 50
 DIGIT_255: 255
 DIGIT_5: 5
 DIGIT_2: 2
+DIGIT_1000: 1000
+SIZE_400x400: [400, 400]
+range_1_5: [1, 2, 3, 4, 5]
+price_range: ["0-999", "1000-1999", "2000-2999", "3000-3999", "4000-4999", "5000-5999", "6000-6999"]

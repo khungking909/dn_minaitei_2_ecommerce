@@ -1,0 +1,25 @@
+<div class="container content text-center">
+  <div class="row justify-content-between">
+    <%= render "shared/list_categories" %>
+    <div class="col-md-9">
+      <%= product_image_tag(@product) %>
+      <h1><%= @product.name %></h1>
+      <%= render "shared/rating" %>
+      <p><%= t("products.price", price: number_to_currency(@product.price)) %></p>
+      <p><%= t("products.quantity", quantity: @product.quantity) %></p>
+      <div class="add-to-cart">
+        <%= button_to t("products.add_to_cart"), "#", method: :post %>
+      </div>
+      <div class="product-info">
+        <div class="product-description">
+          <strong><%= t("products.description_title") %></strong>
+          <p><%= @product.description %></p>
+        </div>
+        <div class="product-comment">
+          <strong><%= t("products.comments_title") %></strong>
+          <%= render_comments(@product.comments) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
