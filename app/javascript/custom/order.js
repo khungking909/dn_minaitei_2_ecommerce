@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   var orderButton = document.getElementById("order_button");
   var orderPopup = document.getElementById("order_popup");
 

@@ -19,8 +19,8 @@ vi:
     register: "Đăng ký"
     account: "Tài khoản"
     profile: "Trang cá nhân"
-    logout: "Đăng xuất"
-    order_history: "Lịch sử đơn hàng"
+    log_out: "Đăng xuất"
+    order: "Đơn hàng"
   products:
     title: "Sản phẩm"
     price: "Giá: %{price}"
@@ -105,7 +105,6 @@ vi:
     view: "Xem"
     accept: "Chấp nhận"
     refuse: "Từ chối"
-    cancel: "Hủy"
     not_found: "Không tìm thấy đơn hàng"
     accept_order: "Chấp nhận đơn hàng của %{name} thành công!!!"
     refuse_order: "Từ chối đơn hàng của %{name} thành công!!!"
@@ -114,16 +113,37 @@ vi:
     full_name: "Họ và tên"
     address: "Địa chỉ"
     phone_number: "Số điện thoại"
+    create:
+      success: "Tạo mới đơn hàng thành công!!"
+      fail: "Tạo mới đơn hàng thất bại!!"
+    cancel:
+      success: "Hủy đơn hàng thành công"
+      fail: "Hủy đơn hàng thất bại"
     mail:
       accepted: "Đơn hàng đã được chấp nhận!!!"
       refused: "Đơn hàng đã bị từ chối!!!"
       message: "Tin nhắn : %{message}"
-  order_histories:
-    account_name: "Đơn hàng của :"
-    empty: "Không có sản phẩm nào được thêm vào đơn hàng"
-  sure: "Bạn có chắc chắn không?"
-  modal:
-    comment: "Bình luận"
+    columns:
+      id: "STT"
+      receiver_name: "Tên người nhận"
+      status: "Trạng thái"
+      quantity: "Số lượng"
+      address: "Địa chỉ"
+      phone_number: "Số điện thoại"
+      created_at: "Ngày tạo"
+      actions: "Hành động"
+    status:
+      title: "Trạng thái"
+      pending: "Đang chờ"
+      approved: "Đã chấp nhận"
+      reject: "Đã từ chối"
+      cancel: "Đã hủy"
+    actions:
+      view: "Xem"
+      cancel: "Hủy"
+      review: "Đánh giá"
+      reason: "Lý do"
+      confirm: "Bạn chắc chắn muốn hủy đơn hàng này?"
   admin:
     products:
       title: "Sản phẩm"
