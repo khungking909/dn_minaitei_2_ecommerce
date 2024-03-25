@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   before_action :load_current_account, only: :create
   before_action :load_product, only: %i(create destroy)
   before_action :set_cart, only: :create
-  before_action :load_cart_product, only: :show
+  before_action :logged_in_user, :load_cart_product, only: :show
 
   def show; end
 

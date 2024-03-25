@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :parse_cart_data, only: :create
   before_action :find_products, only: :create
   before_action :load_order, only: %i(show cancel)
+  before_action :logged_in_user, only: :index
 
   def index
     @pagy, @orders = pagy(current_account.orders.order(created_at: :desc), items: Settings.PAGE_10)

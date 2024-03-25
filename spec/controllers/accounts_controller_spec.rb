@@ -52,7 +52,7 @@ RSpec.describe(AccountsController, type: :controller) do
     end
 
     context "with invalid attributes" do
-      let(:invalid_attributes) do
+      let(:invalid_params) do
         {
           account: {
             name: "",
@@ -65,7 +65,7 @@ RSpec.describe(AccountsController, type: :controller) do
         }
       end
 
-      before { post :create, params: invalid_attributes }
+      before { post :create, params: invalid_params }
 
       it "does not save the new account" do
         expect(assigns(:account).id).not_to(be_present)
