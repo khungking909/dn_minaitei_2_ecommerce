@@ -16,6 +16,7 @@ gem "sassc-rails"
 gem "bcrypt", "3.1.18"
 gem "config"
 gem "dotenv-rails", groups: %i[development test]
+gem "rails-controller-testing"
 gem "rails-i18n"
 gem "sprockets-rails"
 
