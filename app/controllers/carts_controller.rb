@@ -20,7 +20,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    product_id = @product.id.to_s
+    product_id = params[:product_id].to_s
     if @cart.key?(product_id)
       @cart.delete(product_id)
       cookies.permanent[:cart] = @cart.to_json
@@ -31,13 +31,24 @@ class CartsController < ApplicationController
     redirect_to(cart_path)
   end
 
+  def update
+    product_id = params[:product_id].to_s
+    if params[:increment]
+      @cart[product_id][Product::QUANTITY] += Settings.DIGIT_1
+    elsif params[:decrement]
+      @cart[product_id][Product::QUANTITY] -= Settings.DIGIT_1 if @cart[product_id][Product::QUANTITY] > Settings.DIGIT_1
+    end
+    cookies.permanent[:cart] = @cart.to_json
+    redirect_to(cart_path)
+  end
+
   private
 
   def set_cart
     @cart ||= {}
     product_id = params[:product_id].to_s
-    current_quantity = @cart.dig(product_id, "quantity") || 0
-    current_quantity += 1
+    current_quantity = @cart.dig(product_id, Product::QUANTITY) || Settings.DIGIT_0
+    current_quantity += Settings.DIGIT_1
     @cart[product_id] = { product_id: product_id, quantity: current_quantity }
   end
 

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  QUANTITY = "quantity".freeze
+
   has_many :comments, dependent: :destroy
   has_many :order_histories, dependent: :destroy
   belongs_to :category
