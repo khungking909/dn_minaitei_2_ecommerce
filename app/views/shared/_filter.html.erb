@@ -1,0 +1,15 @@
+<%= form_tag products_path, method: :get do %>
+  <div class="filter">
+    <div class="mb-3">
+      <%= label_tag :category_id, t("products.filter.brand"), class: "form-label" %>
+      <%= select_tag :category_id, options_for_select(@categories), include_blank: true, class: "form-select" %>
+    </div>
+
+    <div class="mb-3">
+      <%= label_tag :price_range, t("products.filter.price"), class: "form-label" %>
+      <%= select_tag :price_range, options_for_select(Settings.price_range), include_blank: true, class: "form-select" %>
+    </div>
+
+    <%= submit_tag t("products.filter.title"), class: "btn btn-primary" %>
+  </div>
+<% end %>

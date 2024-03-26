@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    root "products#index"
+    resources :products
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"

@@ -5,12 +5,16 @@ source "https://rubygems.org"
 ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "bootstrap-sass", "3.4.1"
+gem "image_processing", ">= 1.2"
+gem "owlcarousel-rails"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sassc-rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "bcrypt", "3.1.18"
 gem "config"
+gem "dotenv-rails", groups: %i[development test]
 gem "rails-i18n"
 gem "sprockets-rails"
 

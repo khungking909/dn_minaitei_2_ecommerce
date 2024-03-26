@@ -1,5 +1,51 @@
 en:
-  default_title: "StereoCar"
+  slider:
+    button: "SHOP NOW"
+  categories:
+    laptop: "Laptop"
+    tablet: "Tablet"
+    phone: "Phone"
+    pc: "PC"
+  input:
+    search: "Search"
+  button:
+    search: "SEARCH"
+  header:
+    home: "Home"
+    about: "About"
+    contact: "Contact"
+    cart: "Cart"
+    login: "Login"
+    register: "Register"
+  products:
+    title: "Products"
+    price: "Price: %{price}"
+    quantity: "Quantity: %{quantity}"
+    description_title: "Description"
+    comments_title: "Comments"
+    add_to_cart: "ADD TO CART"
+    empty: "No products found"
+    create:
+      success: "Create New Product Successfully!!"
+      fail: "Create New Product Fail!!"
+    load:
+      error: "Product not found"
+    image:
+      must_be_valid: "Product image must be valid"
+      max_size: "Product image must be less than 5MB"
+    filter:
+      title: "Filter"
+      brand: "Brand"
+      price: "Price"
+    insert: "NEW PRODUCT"
+    list_title: "LIST (%{num})"
+    name: "Name"
+    remove_all: "Remove all"
+    ordinal_number: "ON"
+    producer: "Producer"
+    outstanding: "Outstanding"
+    action: "Action"
+  default_title: "E-commerce"
   accounts:
     register_success: "Create New Account Successfully!!"
     sign_up: "Create New Customer Account"
@@ -25,19 +71,6 @@ en:
     login_password_err: "Invalid password!!!"
     foget_password: "Forgot your password?"
     submit_btn: "SIGN IN"
-  products:
-    title: "Products"
-    insert: "NEW PRODUCT"
-    list_title: "LIST (%{num})"
-    name: "Name"
-    remove_all: "Remove all"
-    ordinal_number: "ON"
-    producer: "Producer"
-    price: "Price"
-    quantity: "Quantity"
-    outstanding: "Outstanding"
-    action: "Action"
-    empty: "Product list empty"
   http_error:
     forbidden: "403 Forbidden"
   orders:

@@ -1,0 +1,6 @@
+<form action="<%= products_path %>" method="get" class="search-form">
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("input.search") %>
+    <button type="submit" class="btn"> <%= t("button.search") %> </button>
+  </div>
+</form>

@@ -1,5 +1,51 @@
 vi:
-  default_title: "StereoCar"
+  slider:
+    button: "MUA NGAY"
+  categories:
+    laptop: "Máy tính xách tay"
+    tablet: "Máy tính bảng"
+    phone: "Điện thoại"
+    pc: "Máy tính để bàn"
+  input:
+    search: "Tìm kiếm"
+  button:
+    search: "TÌM KIẾM"
+  header:
+    home: "Trang chủ"
+    about: "Giới thiệu"
+    contact: "Liên hệ"
+    cart: "Giỏ hàng"
+    login: "Đăng nhập"
+    register: "Đăng ký"
+  products:
+    title: "Sản phẩm"
+    price: "Giá: %{price}"
+    quantity: "Số lượng: %{quantity}"
+    description_title: "Mô tả"
+    comments_title: "Bình luận"
+    add_to_cart: "Thêm vào giỏ hàng"
+    empty: "Không tìm thấy sản phẩm"
+    create:
+      success: "Tạo mới sản phẩm thành công!!"
+      fail: "Tạo mới sản phẩm thất bại!!"
+    load:
+      error: "Không tìm thấy sản phẩm"
+    image:
+      must_be_valid: "Product image must be valid"
+      max_size: "Product image must be less than 5MB"
+    filter:
+      title: "Lọc"
+      brand: "Thương hiệu"
+      price: "Giá"
+    insert: "Thêm mới"
+    list_title: "Danh sách (%{num})"
+    name: "Tên"
+    remove_all: "Xóa tất cả"
+    ordinal_number: "STT"
+    producer: "Hãng"
+    outstanding: "Nổi bật"
+    action: "Hành động"
+  default_title: "E-commerce"
   accounts:
     register_success: "Tạo tài khoản thành công"
     sign_up: "Tạo tài khoản khách hàng mới"
@@ -25,19 +71,6 @@ vi:
     login_password_err: "Mật khẩu không đúng!!!"
     foget_password: "Quên mật khẩu?"
     submit_btn: "ĐĂNG NHẬP"
-  products:
-    title: "Sản phẩm"
-    insert: "Thêm mới"
-    list_title: "Danh sách (%{num})"
-    name: "Tên"
-    remove_all: "Xóa tất cả"
-    ordinal_number: "STT"
-    producer: "Hãng"
-    price: "Giá"
-    quantity: "Số lượng"
-    outstanding: "Nổi bật"
-    action: "Hành động"
-    empty: "Không có sản phẩm nào"
   http_error:
     forbidden: "403 Forbidden"
   orders:

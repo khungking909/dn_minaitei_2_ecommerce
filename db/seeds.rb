@@ -1,11 +1,49 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+# db/seeds.rb
+
+brands = %w[
+  Apple
+  Samsung
+  Huawei
+  Xiaomi
+  Oppo
+  OnePlus
+  Google
+  Sony
+  LG
+  Nokia
+  Motorola
+  HTC
+  ASUS
+  Lenovo
+  Realme
+  Vivo
+  BlackBerry
+  ZTE
+  Alcatel
+  Honor
+  TCL
+  Meizu
+  Infinix
+  Poco
+  Razer
+  Essential
+]
+
+brands.each do |brand_name|
+  category = Category.create(name: brand_name)
+  5.times do |n|
+    Product.create(
+      name: "#{brand_name} Phone #{n + 1}",
+      description: "Description for #{brand_name} Phone #{n + 1}",
+      price: rand(500..2000),
+      quantity: rand(1..50),
+      category_id: category.id
+    )
+  end
+end
+
+Rails.logger.debug("Categories and Products seeded successfully!")
