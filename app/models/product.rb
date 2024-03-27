@@ -32,4 +32,12 @@ class Product < ApplicationRecord
 
     { min_price: min_price, max_price: max_price }
   end
+
+  delegate :name, to: :category, prefix: true
+
+  def refund_quantity(quantity)
+    return if update(quantity: self.quantity + quantity)
+
+    raise(ActiveRecord::Rollback)
+  end
 end

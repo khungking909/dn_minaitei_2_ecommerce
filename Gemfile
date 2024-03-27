@@ -6,11 +6,11 @@ ruby "3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "bootstrap-sass", "3.4.1"
+gem "byebug"
 gem "image_processing", ">= 1.2"
 gem "owlcarousel-rails"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sassc-rails"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "bcrypt", "3.1.18"
 gem "config"
@@ -58,6 +58,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
+  gem "dotenv", require: "dotenv/load"
 end
 
 group :development do

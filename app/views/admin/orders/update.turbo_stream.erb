@@ -1,0 +1,32 @@
+<%= turbo_stream.update "order_action_#{@order.id}" do %>
+  <% if  @order.status_pending? %>
+      <%= form_for( :order, url: admin_order_path(@order) , remote: true, method: :patch) do |f| %>
+        <div><%= hidden_field_tag :status, true %></div>
+        <%= f.submit t("orders.accept"), class: "btn btn-outline-success mb-2 mt-2 btn-order text-center" %>
+      <% end %>
+      <%= form_for(:order, url: admin_order_order_histories_path(@order), method: :get) do |f| %>
+        <%= f.submit t("orders.view"), class: "btn btn-outline-danger mb-2 btn-order text-center" %>
+      <% end %>
+      <%= form_for(:order, remote: true) do |f| %>
+        <%= f.submit t("orders.refuse"), class: "btn btn-outline-secondary mb-2 btn-order text-center" %>
+      <% end %>
+    <% elsif @order.status_approved? %>
+      <div class="w-100 text-center fw-bold text-success"><%= t("orders.approved") %></div>
+    <% elsif %>
+      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.reject") %></div>
+    <% else %>
+      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.cancle") %></div>
+    <% end %>
+<% end %>
+
+<%= turbo_stream.update "admin_error_explanation" do %>
+  <% if @order.status_approved? %>
+    <div class="alert alert-success mt-3 w-50 text-center">
+      <%= t("orders.accept_order", name: @order.receiver_name) %>
+    </div>
+  <% else %>
+    <div class="alert alert-success mt-3 w-50 text-center">
+      <%= t("orders.refuse_order", name: @order.receiver_name) %>
+    </div>
+  <% end %>
+<% end %>

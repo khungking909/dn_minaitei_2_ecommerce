@@ -22,13 +22,13 @@
       <div class="d-flex flex-column align-items-center">
         <table class="mt-5 mb-5 table-products">
           <tr class="d-flex">
-            <th class="sizing-table-first-column"><%= t("products.ordinal_number")%></th>
-            <th class="sizing-table"><%= t("products.name")%></th>
-            <th class="sizing-table"><%= t("products.producer")%></th>
-            <th class="sizing-table"><%= t("products.price")%></th>
-            <th class="sizing-table"><%= t("products.quantity")%></th>
-            <th class="sizing-table"><%= t("products.outstanding")%></th>
-            <th class="sizing-table"><%= t("products.action")%></th>
+            <th class="sizing-table-first-column"><%= t("products.ordinal_number") %></th>
+            <th class="sizing-table"><%= t("products.name") %></th>
+            <th class="sizing-table"><%= t("products.producer") %></th>
+            <th class="sizing-table"><%= t("products.price") %></th>
+            <th class="sizing-table"><%= t("products.quantity") %></th>
+            <th class="sizing-table"><%= t("products.outstanding") %></th>
+            <th class="sizing-table"><%= t("products.action") %></th>
           </tr>
           <%= render(@products) || t("products.empty") %>
         </table>

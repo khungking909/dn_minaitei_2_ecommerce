@@ -1,29 +1,32 @@
 <div class="d-flex container-admin">
   <%= render "admin/layouts/sidebar" %>
-  <aside class="col-md-10 ms-5">
+  <aside class="col-md-10 ms-5" >
     <div class="d-flex align-items-center">
       <h2><%= t("orders.title") %></h2>
     </div>
     <hr/>
     <div>
-      <div class="d-flex">
+      <div class="d-flex" id="main-top-order">
         <div class="container-main-mid-search">
-        <span class="ms-2"><%= t("products.name")%></span><input class="ms-2 me-2" type="text"/>
+        <span class="ms-2"><%= t("products.name") %></span><input class="ms-2 me-2" type="text"/>
          <i class="bi bi-search me-2"></i>
         </div>
         <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold" do %>
-          <%= t("orders.remove_all")%>
+          <%= t("orders.remove_all") %>
         <% end %>
       </div>
-      <div class="d-flex flex-column align-items-center me-5" id="main-order">
-        <table class="mt-5 mb-2 table-orders me-5">
-          <tr class="d-flex ps-5 mb-5 ">
-            <th class="sizing-table-first-column"><%= t("products.ordinal_number")%></th>
-            <th class="sizing-table-order"><%= t("orders.order_code")%></th>
-            <th class="sizing-table-order"><%= t("orders.customer")%></th>
-            <th class="sizing-table-order"><%= t("orders.total_products")%></th>
-            <th class="sizing-table-order"><%= t("orders.total_price")%></th>
-            <th class="sizing-table-order"><%= t("products.action")%></th>
+      <div id="admin_error_explanation" class="w-100 d-flex justify-content-center">
+        <%= render "admin/layouts/flash_admin" %>
+      </div>
+      <div class="d-flex flex-column align-items-center me-5" id="main-order" >
+        <table class="mt-5 table-orders me-5">
+          <tr class="d-flex ps-5 mb-3 ">
+            <th class="sizing-table-first-column text-center"><%= t("products.ordinal_number") %></th>
+            <th class="sizing-table-order text-center"><%= t("orders.customer") %></th>
+            <th class="sizing-table-order text-center"><%= t("orders.address") %></th>
+            <th class="sizing-table-order text-center"><%= t("orders.total_products") %></th>
+            <th class="sizing-table-order text-center"><%= t("orders.total_price") %></th>
+            <th class="sizing-table-order text-center"><%= t("products.action") %></th>
           </tr>
           <%= (render @orders) || t("orders.empty") %>
         </table>
