@@ -15,6 +15,7 @@ class Admin::OrdersController < Admin::AdminController
   def update
     status = calculate_status?(params[:status])
     if @order.update_status(status)
+      @order.update_message_and_send_mail(params[:comment], status)
       respond_to do |format|
         format.html do
           flash[:admin_success] = if status

@@ -61,6 +61,31 @@ en:
     remove_product_success: "Remove %{product_name} successfully!!!"
     product_not_in_cart: "Product not in cart"
     product_not_found: "Product not found"
+  admin:
+    products:
+      title: "Products"
+      price: "Price"
+      quantity: "Quantity"
+      empty: "No products found"
+      create:
+        success: "Create New Product Successfully!!"
+        fail: "Create New Product Fail!!"
+      update:
+        success: "Update Product Successfully!!"
+        fail: "Update Product Fail!!"
+      delete:
+        success: "Delete Product Successfully!!"
+        fail: "Delete Product Fail!!"
+      load:
+        not_found: "Product not found"
+      insert: "NEW PRODUCT"
+      list_title: "LIST (%{num})"
+      name: "Name"
+      remove_all: "Remove all"
+      ordinal_number: "ON"
+      producer: "Producer"
+      outstanding: "Outstanding"
+      action: "Action"
   default_title: "E-commerce"
   accounts:
     register_success: "Create New Account Successfully!!"
@@ -108,7 +133,16 @@ en:
     refuse_order: "Refuse order of %{name} successfully!!!"
     status_fails: "Unsuccessful - Order status has changed previously"
     raise_error: "An error occurred while editing the product quantity!!!"
+    not_found: "Not found Order"
+    accept_order: "Accept order of %{name} successfully!!!"
+    refuse_order: "Refuse order of %{name} successfully!!!"
+    mail:
+      accepted: "Order accepted!!!"
+      refused: "Order refused!!!"
+      message: "Message : %{message}"
   order_histories:
     account_name: "Order of :"
     empty: "No Product added with order"
   sure: "Are you sure?"
+  modal:
+    comment: "Comment"

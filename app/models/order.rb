@@ -26,6 +26,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def update_message_and_send_mail(message, status)
+    CustomerMailer.send_status_order_mail(account, message, status).deliver_now if update_columns(message: message)
+  end
+
   def refund_quantity_products
     order_histories.each do |element|
       element.product_refund_quantity(element.quantity)

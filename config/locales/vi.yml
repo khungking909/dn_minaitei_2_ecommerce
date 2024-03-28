@@ -108,7 +108,38 @@ vi:
     refuse_order: "Từ chối order của %{name} thành công!!!"
     status_fails: "Không thành công - Trạng thái đơn hàng đã thay đổi trước đó"
     raise_error: "Xảy ra lỗi khi sửa số lượng sản phẩm!!!"
+    mail:
+      accepted: "Đơn hàng được chấp nhận!!!"
+      refused: "Đơn hàng bị từ chối!!!"
+      message: "Thông điệp : %{message}"
+  admin:
+    products:
+      title: "Sản phẩm"
+      price: "Giá"
+      quantity: "Số lượng"
+      empty: "Không có sản phẩm nào trong kho"
+      create:
+        success: "Tạo sản phẩm mới thành công!!"
+        fail: "Tạo sản phẩm mới thất bại!!"
+      update:
+        success: "Cập nhật sản phẩm thành công!!"
+        fail: "Cập nhật sản phẩm Thất bại!!"
+      delete:
+        success: "Xóa sản phẩm thành công!!"
+        fail: "Xóa sản phẩm Thất bại!!"
+      load:
+        not_found: "Không tìm thấy sản phẩm"
+      insert: "Thêm mới"
+      list_title: "Danh sách (%{num})"
+      name: "Tên"
+      remove_all: "Xóa tất cả"
+      ordinal_number: "STT"
+      producer: "Hãng"
+      outstanding: "Nổi bật"
+      action: "Hành động"
   order_histories:
     account_name: "Đơn hàng của :"
     empty: "Không có sản phẩm nào được thêm vào đơn hàng"
   sure: "Bạn chắc chắn chứ?"
+  modal:
+    comment: "Bình luận"

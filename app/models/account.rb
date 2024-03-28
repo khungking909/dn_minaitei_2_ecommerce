@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Rails/SkipsModelValidations
-
 class Account < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   private_constant :VALID_EMAIL_REGEX
@@ -60,5 +58,3 @@ class Account < ApplicationRecord
     email.downcase!
   end
 end
-
-# rubocop:enable Rails/SkipsModelValidations

@@ -259,6 +259,9 @@ Style/HashTransformValues:
 Style/ImplicitRuntimeError:
   Enabled: true
 
+Rails/SkipsModelValidations:
+  Enabled: false
+
 Style/InlineComment:
   Enabled: true
 
