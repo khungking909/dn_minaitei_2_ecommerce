@@ -7,3 +7,10 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+const swiper = new Swiper('.swiper', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  slidesPerView: 3,
+});

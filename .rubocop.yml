@@ -265,6 +265,9 @@ Rails/SkipsModelValidations:
 Style/InlineComment:
   Enabled: true
 
+Style/InlineComment:
+  Enabled: false
+
 Style/IpAddresses:
   Enabled: true
 
