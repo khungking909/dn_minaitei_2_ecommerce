@@ -1,6 +1,16 @@
 <tr>
-  <td><%= product.name %></td>
-  <td><%= item["quantity"] %></td>
+  <td><%= link_to product.name, product_path(product) %></td>
+  <td class="cart-quantity">
+    <%= form_tag cart_path, method: :put do %>
+      <%= hidden_field_tag :product_id, product.id %>
+      <%= submit_tag "+", name: "increment", class: "btn btn-primary", disabled: check_quantity(item["quantity"], product.quantity, :increment) %>
+    <% end %>
+    <%= item["quantity"] %>
+    <%= form_tag cart_path, method: :put do %>
+      <%= hidden_field_tag :product_id, product.id %>
+      <%= submit_tag "-", name: "decrement", class: "btn btn-primary", disabled: check_quantity(item["quantity"], product.quantity, :decrement) %>
+    <% end %>
+  </td>
   <td><%= number_to_currency(product.price) %></td>
   <td><%= number_to_currency(product.price * item["quantity"].to_i) %></td>
   <td>

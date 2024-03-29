@@ -16,4 +16,12 @@ module CartsHelper
     end
     number_to_currency(total_price)
   end
+
+  def check_quantity(cart_quantity, product_quantity, action)
+    if action == :increment
+      cart_quantity == product_quantity
+    elsif action == :decrement
+      cart_quantity <= 1
+    end
+  end
 end

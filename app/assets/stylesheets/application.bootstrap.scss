@@ -329,7 +329,7 @@ form.search-form {
 
 
 
-/* button */
+/* cart */
 .add-to-cart {
   button {
     border: 1px solid #f4291a;
@@ -342,6 +342,12 @@ form.search-form {
     background-color: #f4291a;
     color: #fff;
   }
+}
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 /* menu */
