@@ -143,6 +143,11 @@ vi:
       producer: "Hãng"
       outstanding: "Nổi bật"
       action: "Hành động"
+    statistics:
+      month: "Tháng"
+      title: "Thống kê"
+      total_quantity: "Tổng sản phẩm"
+      total_price: "Doanh thu"
   order_histories:
     account_name: "Đơn hàng của :"
     empty: "Không có sản phẩm nào được thêm vào đơn hàng"

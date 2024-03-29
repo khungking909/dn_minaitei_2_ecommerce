@@ -1,5 +1,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
-import "./custom//menu"
 import "./custom/order"
+import "custom/menu"
+import "custom/modal"
 import * as bootstrap from "bootstrap"
