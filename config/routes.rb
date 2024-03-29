@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
     resource :cart, only: %i[show create destroy update]
+    resources :orders
     resources :accounts
     namespace :admin do
       resources :products

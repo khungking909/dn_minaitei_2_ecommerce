@@ -1,0 +1,14 @@
+<div id="order_popup" style="display: none;">
+  <%= form_with(model: @order, url: orders_path, method: :post, remote: true) do |form| %>
+    <%= form.label :receiver_name, t("orders.full_name") %>
+    <%= form.text_field :receiver_name %>
+
+    <%= form.label :receiver_address, t("orders.address") %>
+    <%= form.text_field :receiver_address %>
+
+    <%= form.label :receiver_phone_number, t("orders.phone_number") %>
+    <%= form.text_field :receiver_phone_number %>
+
+    <%= form.submit t("orders.title") %>
+  <% end %>
+</div>
