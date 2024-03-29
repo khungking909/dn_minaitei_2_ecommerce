@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @pagy, @products = pagy(filter_products, items: Settings.PAGE_9)
+    @product_outstandings = Product.product_outstanding
   end
 
   def new

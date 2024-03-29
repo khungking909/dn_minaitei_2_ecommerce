@@ -1,0 +1,18 @@
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <% @product_outstandings.each do |product| %>
+      <div class="swiper-slide d-flex justify-content-center">
+        <div class="col-md-4 w-100">
+          <div class="product-item-container">
+            <div class="product-item-info">
+              <%= product_image_tag(product) %>
+              <h4><%= link_to product.name, product_path(product) %></h4>
+              <%= render "shared/rating" %>
+              <p><%= number_to_currency(product.price) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

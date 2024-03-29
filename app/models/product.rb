@@ -18,6 +18,15 @@ class Product < ApplicationRecord
                                 where("price >= ? AND price <= ?", min_price, max_price) if min_price.present? && max_price.present?
                               }
   scope :newest, -> { order(created_at: :desc) }
+  scope :product_outstanding, (lambda do
+    select("products.*, SUM(order_histories.quantity) AS total_quantity")
+    .joins(:order_histories)
+    .group("products.id")
+    .order("total_quantity DESC")
+    .joins("INNER JOIN orders ON orders.id = order_histories.order_id")
+    .where(orders: { status: Order.statuses[:approved] })
+    .limit(Settings.DIGIT_10)
+  end)
 
   validates :name, presence: true, length: { maximum: Settings.DIGIT_255 }
   validates :price, presence: true
