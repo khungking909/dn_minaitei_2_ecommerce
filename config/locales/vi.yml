@@ -154,3 +154,12 @@ vi:
       title: "Thống kê"
       total_quantity: "Tổng sản phẩm"
       total_price: "Doanh thu"
+      ratio: "Tỉ lệ"
+      empty: "Không có gì ở đây"
+      detail_title: "Thông tin về sản phẩm bán ra trong tháng %{month}"
+  order_histories:
+    account_name: "Đơn hàng của :"
+    empty: "Không có sản phẩm nào được thêm vào đơn hàng"
+  sure: "Bạn chắc chắn chứ?"
+  modal:
+    comment: "Bình luận"

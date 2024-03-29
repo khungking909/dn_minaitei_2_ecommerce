@@ -1,0 +1,7 @@
+<tr class="d-flex mt-2">
+  <td class="sizing-table-statistic text-center"><%= statistic_detail_counter + 1 %></td>
+  <td class="sizing-table-statistic text-center"><%= statistic_detail.name_product %></td>
+  <td class="sizing-table-statistic text-center"><%= statistic_detail.product_total_quantity %></td>
+  <td class="sizing-table-statistic text-center"><%= number_to_currency statistic_detail.product_total_price %></td>
+  <td class="sizing-table-statistic text-center"><%= percent_of(total, statistic_detail.product_total_price).round(2) %>%</td>
+</tr>

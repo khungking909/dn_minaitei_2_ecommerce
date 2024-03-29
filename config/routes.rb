@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       resources :products
       resources :users
       resources :orders
-      get "/statistics", to: "statistics#monthly_statistics"
+      get "/statistics", to: "statistics#monthly_statistics", as: "monthly_statistics"
+      get "/statistics/:month/:year", to: "statistics#monthly_statistics_detail", as: "monthly_statistics_detail"
     end
   end
 end

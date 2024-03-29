@@ -8,7 +8,7 @@
           <th class="sizing-table-statistic text-center"><%= t("admin.statistics.total_price") %></th>
           <th class="sizing-table-statistic text-center"><%= t("admin.products.action")%></th>
         </tr>
-        <%= render partial: "statistic", collection: @statistics %>
+        <%= render(partial: "statistic", collection: @statistics) || t("admin.products.empty") %>
       </table>
   </aside>
 </div>
