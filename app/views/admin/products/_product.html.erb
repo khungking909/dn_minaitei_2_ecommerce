@@ -1,23 +1,27 @@
 <tr style="display:flex; align-items:center; margin-top:10px">
-  <td class="sizing-table-first-column">
+  <td class="sizing-table-first-column text-center">
     <%= product_counter + 1 %>
   </td>
-  <td class="sizing-table">
+  <td class="sizing-table text-center">
     <%= product.name %>
   </td>
-  <td class="sizing-table">
+  <td class="sizing-table text-center">
     <%= product.category.name %>
   </td>
-  <td class="sizing-table">
+  <td class="sizing-table text-center">
     <%= product.price %>
   </td>
-  <td class="sizing-table">
+  <td class="sizing-table text-center">
     <%= product.quantity %>
   </td>
-  <td class="sizing-table">
-    <i class="bi bi-bookmark-check bg-success bg-gradient fw-bold text-white p-1 rounded ms-3"></i>
+  <td class="sizing-table text-center">
+    <% if @top_10_outstanding.include?(product) %>
+      <i class="bi bi-bookmark-check bg-success bg-gradient fw-bold text-white p-1 rounded"></i>
+    <% else %>
+      <i class="bi bi-bookmark-x bg-danger bg-gradient fw-bold text-white p-1 rounded"></i>
+    <% end %>
   </td>
-  <td class="sizing-table d-flex align-items-center">
+  <td class="sizing-table justify-content-center d-flex align-items-center">
     <%= link_to edit_admin_product_path(product) do %>
       <i class="bi bi-pen bg-warning bg-gradient fw-bold text-white rounded p-1"></i>
     <% end %>
@@ -26,6 +30,5 @@
           <i class="bi bi-trash bg-danger bg-gradient fw-bold text-white p-1 rounded "></i>
         <% end %>
       <% end %>
-
   </td>
 </tr>

@@ -4,7 +4,8 @@ class Admin::ProductsController < Admin::AdminController
   before_action :load_product, only: %i(update edit destroy)
 
   def index
-    @pagy, @products = pagy(Product.get_all_by_name_sort, items: Settings.DIGIT_5)
+    @pagy, @products = pagy(filter_products, items: Settings.DIGIT_5)
+    @top_10_outstanding ||= Product.product_outstanding
   end
 
   def edit
@@ -52,6 +53,11 @@ class Admin::ProductsController < Admin::AdminController
 
     flash[:admin_error] = t("admin.products.load.not_found")
     redirect_to(admin_orders_path)
+  end
+
+  def filter_products
+    Product.search_by_name(params.dig(:product, :search))
+           .get_all_by_name_sort
   end
 
   def product_params

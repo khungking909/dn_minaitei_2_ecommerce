@@ -14,7 +14,7 @@ class Order < ApplicationRecord
   enum status: { reject: 0,  cancel: 1, approved: 2, pending: 3 }, _default: :pending, _prefix: :status
 
   scope :order_by_status, -> { order(status: :desc) }
-
+  scope :search_by_name, -> (search_term) { where("orders.receiver_name LIKE ?", "%#{search_term}%") if search_term.present? }
   scope :statistical_product, (lambda do
     select("DATE(orders.created_at) as order_date,
             SUM(order_histories.quantity) AS total_quantity,

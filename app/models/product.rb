@@ -27,6 +27,7 @@ class Product < ApplicationRecord
                                  .order("total_quantity DESC")
                                  .joins("INNER JOIN orders ON orders.id = order_histories.order_id")
                                  .where(orders: { status: Order.statuses[:approved] })
+                                 .where(is_deleted: false)
                                  .limit(Settings.DIGIT_10)
                                end)
 

@@ -176,7 +176,7 @@ vi:
       total_price: "Doanh thu"
       ratio: "Tỉ lệ"
       empty: "Không có gì ở đây"
-      detail_title: "Thông tin về sản phẩm bán ra trong tháng %{month}"
+      detail_title: "Thông tin về sản phẩm bán ra trong tháng %{month}/%{year}"
   order_histories:
     account_name: "Đơn hàng của :"
     empty: "Không có sản phẩm nào được thêm vào đơn hàng"

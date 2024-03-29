@@ -12,8 +12,13 @@
     <div>
       <div class="d-flex">
         <div class="container-main-mid-search">
-        <span class="ms-2"><%= t("admin.products.name")%></span><input class="ms-2 me-2" type="text"/>
-         <i class="bi bi-search me-2"></i>
+          <%= form_for(:product, method: :get) do |f| %>
+            <span class="ms-2"><%= t("admin.products.name")%></span>
+            <%= f.text_field :search %>
+            <%= f.button class: "p-2 pe-4 ps-4 text-center " do %>
+              <i class="bi bi-search text-black"></i>
+            <% end %>
+          <% end %>
         </div>
         <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold" do %>
           <%= t("admin.products.remove_all")%>
@@ -23,17 +28,22 @@
         <%= render "admin/layouts/flash_admin" %>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <table class="mt-5 mb-5 table-products">
-          <tr class="d-flex">
-            <th class="sizing-table-first-column"><%= t("admin.products.ordinal_number") %></th>
-            <th class="sizing-table"><%= t("admin.products.name") %></th>
-            <th class="sizing-table"><%= t("admin.products.producer") %></th>
-            <th class="sizing-table"><%= t("admin.products.price") %></th>
-            <th class="sizing-table"><%= t("admin.products.quantity") %></th>
-            <th class="sizing-table"><%= t("admin.products.outstanding") %></th>
-            <th class="sizing-table"><%= t("admin.products.action") %></th>
-          </tr>
-          <%= render(@products) || t("admin.products.empty") %>
+        <table class="mt-5 mb-5 table-products table table-striped">
+          <thead>
+            <tr class="d-flex">
+              <th class="sizing-table-first-column text-center"><%= t("admin.products.ordinal_number") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.name") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.producer") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.price") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.quantity") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.outstanding") %></th>
+              <th class="sizing-table text-center"><%= t("admin.products.action") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render(@products) || t("admin.products.empty") %>
+          </tbody>
+
         </table>
          <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
       </div>

@@ -1,14 +1,18 @@
 <div class="d-flex container-admin">
   <%= render "admin/layouts/sidebar" %>
   <aside class="col-md-10 ms-5">
-      <table class="mt-5 mb-5 ms-5">
-        <tr class="d-flex justify-content-center">
-          <th class="sizing-table-statistic text-center"><%= t("admin.statistics.month") %></th>
-          <th class="sizing-table-statistic text-center"><%= t("admin.statistics.total_quantity") %></th>
-          <th class="sizing-table-statistic text-center"><%= t("admin.statistics.total_price") %></th>
-          <th class="sizing-table-statistic text-center"><%= t("admin.products.action")%></th>
-        </tr>
-        <%= render(partial: "statistic", collection: @statistics) || t("admin.products.empty") %>
+      <table class="mt-5 mb-5 ms-5 table table-striped">
+        <thead>
+          <tr class="d-flex">
+            <th class="sizing-table-statistic text-center"><%= t("admin.statistics.month") %></th>
+            <th class="sizing-table-statistic text-center"><%= t("admin.statistics.total_quantity") %></th>
+            <th class="sizing-table-statistic text-center"><%= t("admin.statistics.total_price") %></th>
+            <th class="sizing-table-statistic text-center"><%= t("admin.products.action")%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render(partial: "statistic", collection: @statistics) || t("admin.products.empty") %>
+        </tbody>
       </table>
   </aside>
 </div>
