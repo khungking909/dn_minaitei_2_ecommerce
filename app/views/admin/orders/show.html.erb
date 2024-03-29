@@ -12,10 +12,10 @@
       <table class="mt-5 mb-2 border border-2 border-dark rounded bg-white">
         <tr class="d-flex ps-5 mb-5 mt-3">
           <th class="sizing-table-first-column text-center"><%= t("products.ordinal_number") %></th>
-          <th class="sizing-table-order text-center"><%= t("products.name") %></th>
-          <th class="sizing-table-order text-center"><%= t("products.producer") %></th>
-          <th class="sizing-table-order text-center"><%= t("products.quantity") %></th>
-          <th class="sizing-table-order text-center"><%= t("products.price") %></th>
+          <th class="sizing-table-order text-center"><%= t("admin.products.name") %></th>
+          <th class="sizing-table-order text-center"><%= t("admin.products.producer") %></th>
+          <th class="sizing-table-order text-center"><%= t("admin.products.quantity") %></th>
+          <th class="sizing-table-order text-center"><%= t("admin.products.price") %></th>
         </tr>
         <%= render(partial: "order_product", collection: @order_products)|| t("order_histories.empty") %>
       </table>

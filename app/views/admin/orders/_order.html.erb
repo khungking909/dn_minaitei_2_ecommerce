@@ -10,13 +10,15 @@
   <td class="sizing-table-order text-center"><%= total_price order %></td>
   <td class="sizing-table-order d-flex flex-column text-center" id= <%= "order_action_#{order.id}"%>>
     <% if  order.status_pending? %>
-      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch) do |f| %>
+      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch, id:"order-form-accept") do |f| %>
         <div><%= hidden_field_tag :status, :accept %></div>
-        <%= f.submit t("orders.accept"), class: "btn btn-outline-success mb-2 mt-2 btn-order text-center", data: { "turbo-method": :delete, turbo_confirm: t("sure") } %>
+        <div><%= hidden_field_tag :comment, "", id: "order-form-comment" %></div>
+        <%= f.submit t("orders.accept"), class: "btn btn-outline-success mb-2 mt-2 btn-order text-center", data: { bs_toggle: "modal", bs_target: "#modal-comment" }, id:"accept-button" %>
       <% end %>
-      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch) do |f| %>
+      <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch, id:"order-form-refuse") do |f| %>
         <div><%= hidden_field_tag :status, :refuse %></div>
-        <%= f.submit t("orders.refuse"), class: "btn btn-outline-secondary mb-2 btn-order text-center", data: { "turbo-method": :delete, turbo_confirm: t("sure") } %>
+        <div><%= hidden_field_tag :comment, "", id: "order-form-comment-refuse" %></div>
+        <%= f.submit t("orders.refuse"), class: "btn btn-outline-secondary mb-2 btn-order text-center", data: { bs_toggle: "modal", bs_target: "#modal-comment" }, id:"refuse-button" %>
       <% end %>
 
     <% elsif order.status_approved? %>
