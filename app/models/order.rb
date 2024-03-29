@@ -11,6 +11,16 @@ class Order < ApplicationRecord
 
   scope :order_by_status, -> { order(status: :desc) }
 
+  scope :statistical_product, (lambda do
+    select("DATE(orders.created_at) as order_date,
+            SUM(order_histories.quantity) AS total_quantity,
+            SUM(order_histories.quantity * order_histories.current_price) AS total_price"
+          )
+    .joins(:order_histories)
+    .group("order_date")
+    .where(orders: { status: Order.statuses[:approved] })
+  end)
+
   belongs_to :account
   has_many :order_histories, dependent: :destroy
   has_many :products, through: :order_histories

@@ -143,6 +143,11 @@ en:
       producer: "Producer"
       outstanding: "Outstanding"
       action: "Action"
+    statistics:
+      month: "Month"
+      title: "Statistics"
+      total_quantity: "Total Quantity"
+      total_price: "Total Price"
   order_histories:
     account_name: "Order of :"
     empty: "No Product added with order"
