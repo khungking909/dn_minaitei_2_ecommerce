@@ -6,15 +6,32 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <%= link_to t("header.home"), root_url, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t("header.cart"), "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to t("header.login"), login_path, class: "nav-link" %>
-        </li>
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to t("header.home"), root_url, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t("header.cart"), cart_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to t("header.account"), "", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: {toggle: "dropdown", target: "#navbarDropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t("header.profile"), "#", class: "dropdown-item" %>
+              <%= link_to t("header.order_history"), "#", class: "dropdown-item" %>
+              <%= link_to t("header.log_out"), logout_path, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item"></li>
+            <%= link_to t("header.home"), root_url, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t("header.cart"), login_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t("header.login"), login_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

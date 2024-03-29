@@ -1,0 +1,9 @@
+<tr>
+  <td><%= product.name %></td>
+  <td><%= item["quantity"] %></td>
+  <td><%= number_to_currency(product.price) %></td>
+  <td><%= number_to_currency(product.price * item["quantity"].to_i) %></td>
+  <td>
+    <%= link_to t("cart.remove"), cart_path(product_id: product.id), method: :delete, class: "btn btn-sm btn-danger" %>
+  </td>
+</tr>

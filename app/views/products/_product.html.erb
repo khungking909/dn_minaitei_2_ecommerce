@@ -6,7 +6,7 @@
       <%= render "shared/rating" %>
       <p><%= number_to_currency(product.price) %></p>
       <div class="add-to-cart">
-        <%= button_to t("products.add_to_cart"), "#", method: :post %>
+        <%= button_to t("products.add_to_cart"), cart_path(product_id: product.id), method: :post %>
       </div>
     </div>
   </div>

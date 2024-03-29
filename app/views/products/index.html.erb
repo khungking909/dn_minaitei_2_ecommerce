@@ -1,5 +1,8 @@
 <% provide :title, t("header.home") %>
 <div class="container content text-center">
+  <% if flash %>
+    <%= render "layouts/flash" %>
+  <% end %>
   <% if @slider %>
     <%= render "layouts/slider" %>
   <% end %>
