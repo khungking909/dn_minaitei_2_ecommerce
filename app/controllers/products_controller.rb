@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
            .sort_by_category(params[:category_id])
            .sort_by_range_price(*price_range.values)
            .newest
+           .get_all_by_name_sort
   end
 
   def load_product

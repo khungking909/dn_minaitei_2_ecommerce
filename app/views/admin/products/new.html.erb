@@ -1,0 +1,15 @@
+<div class="d-flex container-admin">
+  <%= render "admin/layouts/sidebar" %>
+  <aside class="col-md-10 ms-5" id="main" >
+    <div class="d-flex align-items-center">
+      <h2><%= t("admin.products.title") %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <%= form_for :product, url: admin_products_path, class: "d-flex flex-column" do |f| %>
+          <%= render "form", f: f %>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+</div>

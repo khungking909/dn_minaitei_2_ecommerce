@@ -5,4 +5,5 @@ class OrderHistory < ApplicationRecord
   belongs_to :product
 
   delegate :name, :category_name, :refund_quantity, to: :product, prefix: true
+  delegate :status, to: :order, prefix: true
 end

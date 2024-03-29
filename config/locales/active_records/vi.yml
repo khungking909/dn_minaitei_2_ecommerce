@@ -1,0 +1,40 @@
+vi:
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            quantity:
+              not_a_number: "Số lượng phải là một số"
+              blank: "Số lượng không được để trống"
+              to_longs: "Số lượng không được vượt quá 1000"
+            name:
+              blank: "Tên không được để trống"
+              to_longs: "Tên không được vượt quá 255 ký tự"
+            price:
+              not_a_number: "Giá phải là một số"
+              blank: "Giá không được để trống"
+            description:
+              blank: "Mô tả không được để trống"
+              to_longs: "Mô tả không được vượt quá 1000 ký tự"
+        order:
+          attributes:
+            receiver_name:
+              blank: "Tên người nhận không được để trống"
+            receiver_address:
+              blank: "Địa chỉ người nhận không được để trống"
+            receiver_phone_number:
+              blank: "Số điện thoại người nhận không được để trống"
+        account:
+          attributes:
+            name:
+              blank: "Tên không được để trống"
+              to_longs: "Tên không được vượt quá 50 ký tự"
+            email:
+              blank: "Email không được để trống"
+              to_longs: "Email không được vượt quá 255 ký tự"
+              invalid: "Phải nhập đúng định dạng email"
+              taken: "Người dùng với cùng email đã tồn tại. Vui lòng thử lại với email khác"
+            password:
+              blank: "Mật khẩu không được để trống"
+              confirmation: "Xác nhận mật khẩu không khớp với Mật khẩu"

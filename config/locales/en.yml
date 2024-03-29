@@ -118,6 +118,12 @@ en:
       accepted: "Order accepted!!!"
       refused: "Order refused!!!"
       message: "Message : %{message}"
+  order_histories:
+    account_name: "Order of :"
+    empty: "No Product added with order"
+  sure: "Are you sure?"
+  modal:
+    comment: "Comment"
   admin:
     products:
       title: "Products"
@@ -148,9 +154,3 @@ en:
       title: "Statistics"
       total_quantity: "Total Quantity"
       total_price: "Total Price"
-  order_histories:
-    account_name: "Order of :"
-    empty: "No Product added with order"
-  sure: "Are you sure?"
-  modal:
-    comment: "Comment"
