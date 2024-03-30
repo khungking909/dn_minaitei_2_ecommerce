@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            quantity:
+              not_a_number: "Quantity must a number"
+              blank: "Quantity cannot be left blank"
+              to_longs: "Quantity cannot exceed 1000"
+            name:
+              blank: "Name cannot be left blank"
+              to_longs: "Name cannot exceed 255 characters"
+            price:
+              not_a_number: "Price must a number"
+              blank: "Price cannot be left blank"
+            description:
+              blank: "Description cannot be left blank"
+              to_longs: "Description cannot exceed 1000 characters"
+        order:
+          attributes:
+            receiver_name:
+              blank: "Receiver Name can't be blank"
+            receiver_address:
+              blank: "Receiver Address can't be blank"
+            receiver_phone_number:
+              blank: "Receiver Phone number can't be blank"
+        account:
+          attributes:
+            name:
+              blank: "Name can't be blank"
+              to_longs: "Name cannot exceed 50 characters"
+            email:
+              blank: "Email can't be blank"
+              to_longs: "Email cannot exceed 255 characters"
+              invalid: "Must enter correct email format"
+              taken: "User with same email already exists. Please try with another email"
+            password:
+              blank: "Password can't be blank"
+              confirmation: "Password confirmation doesn't match Password"

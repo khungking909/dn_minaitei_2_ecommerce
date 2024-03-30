@@ -41,7 +41,8 @@ brands.each do |brand_name|
       description: "Description for #{brand_name} Phone #{n + 1}",
       price: rand(500..2000),
       quantity: rand(1..50),
-      category_id: category.id
+      category_id: category.id,
+      is_deleted: false
     )
   end
 end

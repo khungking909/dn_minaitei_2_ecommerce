@@ -17,12 +17,15 @@
   <td class="sizing-table">
     <i class="bi bi-bookmark-check bg-success bg-gradient fw-bold text-white p-1 rounded ms-3"></i>
   </td>
-  <td style="max-width: 150px; min-width:150px;">
-    <%= link_to "#", data: { "turbo-method": :delete,turbo_confirm: t("sure") }  do %>
+  <td class="sizing-table d-flex align-items-center">
+    <%= link_to edit_admin_product_path(product) do %>
       <i class="bi bi-pen bg-warning bg-gradient fw-bold text-white rounded p-1"></i>
     <% end %>
-    <%= link_to "#", data: { "turbo-method": :delete,turbo_confirm: t("sure") } do %>
-       <i class="bi bi-trash bg-danger bg-gradient fw-bold text-white p-1 rounded"></i>
-    <% end %>
+    <%= form_for(:product, url: admin_product_path(product), method: :delete) do |f| %>
+        <%= f.button "", data: { "turbo-method": :delete,turbo_confirm: t("sure") }, class:"button-trash" do %>
+          <i class="bi bi-trash bg-danger bg-gradient fw-bold text-white p-1 rounded "></i>
+        <% end %>
+      <% end %>
+
   </td>
 </tr>

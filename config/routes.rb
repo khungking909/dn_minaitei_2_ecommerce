@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     root "products#index"
     resources :products
     get "/login", to: "sessions#new"
-    get "/statistics", to: "admin/statistics#index"
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
     resource :cart, only: %i[show create destroy update]
