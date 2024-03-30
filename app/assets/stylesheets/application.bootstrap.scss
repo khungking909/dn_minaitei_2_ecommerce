@@ -4,10 +4,11 @@
 #error_explanation {
   color: red
 }
-#admin_error_explanation
-{
+
+#admin_error_explanation {
   color: red;
 }
+
 .sign-up-title {
   font-weight: bold;
   font-size: 35px;
@@ -190,9 +191,11 @@ textarea {
 /* header */
 header {
   background-color: #000;
+
   a {
     color: #fff;
   }
+
   nav {
     li {
       a:hover {
@@ -287,7 +290,7 @@ form.search-form {
 
 /* container */
 .container {
-  .content{
+  .content {
     margin-top: 30px;
   }
 }
@@ -322,7 +325,7 @@ form.search-form {
     }
   }
 
-  > * {
+  >* {
     flex-grow: 1;
   }
 }
@@ -343,6 +346,7 @@ form.search-form {
     color: #fff;
   }
 }
+
 .cart-quantity {
   display: flex;
   align-items: center;
@@ -414,8 +418,8 @@ form.search-form {
   padding: 10px;
   margin-bottom: 20px;
 }
-.sizing-table-statistic
-{
+
+.sizing-table-statistic {
   max-width: 200px;
   min-width: 200px;
 }
@@ -424,4 +428,7 @@ form.search-form {
   border: none;
   background: none ;
   outline: none;
+}
+.table-monthly-statistics {
+  max-height: 450px;
 }

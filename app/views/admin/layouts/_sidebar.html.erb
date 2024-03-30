@@ -6,13 +6,13 @@
     <hr/>
     <div class= "d-flex flex-column align-items-center">
       <%= link_to admin_products_path, class:"nav-selection bg-secondary" do %>
-       <%= t("products.title")%>
+       <%= t("products.title") %>
       <% end %>
       <%= link_to admin_orders_path, class:"nav-selection bg-secondary" do %>
-       <%= t("orders.title")%>
+       <%= t("orders.title") %>
       <% end %>
-      <%= link_to "/admin/statistics", class:"nav-selection bg-secondary" do %>
-       <%= t("admin.statistics.title")%>
+      <%= link_to admin_monthly_statistics_path, class:"nav-selection bg-secondary" do %>
+       <%= t("admin.statistics.title") %>
       <% end %>
     </div>
   </aside>

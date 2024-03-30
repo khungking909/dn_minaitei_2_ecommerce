@@ -154,3 +154,12 @@ en:
       title: "Statistics"
       total_quantity: "Total Quantity"
       total_price: "Total Price"
+      ratio: "Ratio"
+      empty: "There's nothing here"
+      detail_title: "Information about products sold during the month %{month}"
+  order_histories:
+    account_name: "Order of :"
+    empty: "No Product added with order"
+  sure: "Are you sure?"
+  modal:
+    comment: "Comment"
