@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_03_27_034145) do
-=======
 ActiveRecord::Schema[7.1].define(version: 2024_03_28_104227) do
->>>>>>> ab472bf (pCRUD)
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"

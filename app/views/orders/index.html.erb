@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t("orders.columns.id") %></th>
+          <th><%= t("orders.columns.reciever_name") %></th>
+          <th><%= t("orders.status.title") %></th>
+          <th><%= t("orders.columns.quantity") %></th>
+          <th><%= t("orders.columns.created_at") %></th>
+          <th><%= t("orders.columns.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each_with_index do |order, index| %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= order.receiver_name %></td>
+            <td>
+              <%= order_status_button(order.status) %>
+            </td>
+            <td><%= order.order_histories.count %></td>
+            <td><%= order.created_at %></td>
+            <td>
+              <%= link_to t("orders.actions.view"), "#", class: "btn btn-primary btn-sm" %>
+              <%= check_status(order) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination justify-content-center">
+      <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
+  </div>
+</div>

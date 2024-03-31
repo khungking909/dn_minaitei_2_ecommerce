@@ -7,8 +7,13 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     get "/logout", to: "sessions#destroy"
+    get "/orders", to: "orders#index", as: "orders"
     resource :cart, only: %i[show create destroy update]
-    resources :orders
+    resources :orders, only: %i[create show index] do
+      member do
+        patch "/cancel", to: "orders#cancel"
+      end
+    end
     resources :accounts
     namespace :admin do
       resources :products

@@ -2,6 +2,10 @@
 
 class Order < ApplicationRecord
   ACCEPT = "accept".freeze
+  REJECT_STATUS = "reject".freeze
+  PENDING_STATUS = "pending".freeze
+  APPROVED_STATUS = "approved".freeze
+  CANCEL_STATUS = "cancel".freeze
 
   after_update :refund_quantity_products, if: :status_reject?
 
@@ -27,6 +31,8 @@ class Order < ApplicationRecord
 
   delegate :count, to: :products, prefix: true
   delegate :name, to: :account, prefix: true
+
+  accepts_nested_attributes_for :order_histories
 
   def update_status(status)
     if status

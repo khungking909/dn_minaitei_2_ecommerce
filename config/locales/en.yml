@@ -19,8 +19,8 @@ en:
     register: "Register"
     account: "Account"
     profile: "Profile"
-    logout: "Logout"
-    order_history: "Order History"
+    log_out: "Log out"
+    order: "Order"
   products:
     title: "Products"
     price: "Price: %{price}"
@@ -105,7 +105,6 @@ en:
     view: "View"
     accept: "Accept"
     refuse: "Refuse"
-    cancel: "Cancel"
     not_found: "Not found Order"
     accept_order: "Accept order of %{name} successfully!!!"
     refuse_order: "Refuse order of %{name} successfully!!!"
@@ -114,16 +113,37 @@ en:
     full_name: "Full Name"
     address: "Address"
     phone_number: "Phone Number"
+    create:
+      success: "Create New Order Successfully!!"
+      fail: "Create New Order Fail!!"
+    cancel:
+      success: "Cancel Order successfully"
+      fail: "Cancel Order Fail successfully"
     mail:
       accepted: "Order accepted!!!"
       refused: "Order refused!!!"
       message: "Message : %{message}"
-  order_histories:
-    account_name: "Order of :"
-    empty: "No Product added with order"
-  sure: "Are you sure?"
-  modal:
-    comment: "Comment"
+    columns:
+      id: "No."
+      receiver_name: "Receiver Name"
+      status: "Status"
+      quantity: "Quantity"
+      address: "Address"
+      phone_number: "Phone Number"
+      created_at: "Created At"
+      actions: "Actions"
+    status:
+      title: "Status"
+      pending: "Pending"
+      approved: "Approved"
+      reject: "Rejected"
+      cancel: "Canceled"
+    actions:
+      view: "View"
+      cancel: "Cancel"
+      review: "Review"
+      reason: "Reason"
+      confirm: "Are you sure you want to cancel this order?"
   admin:
     products:
       title: "Products"
