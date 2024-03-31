@@ -1,6 +1,6 @@
 <tr class="d-flex mt-2">
   <td class="sizing-table-statistic text-center"><%= "#{statistic.order_date.month}  / #{statistic.order_date.year}" %></td>
   <td class="sizing-table-statistic text-center"><%= statistic.total_quantity %></td>
-  <td class="sizing-table-statistic text-center"><%= number_to_currency statistic.total_price %></td>
+  <td class="sizing-table-statistic text-center"><%= number_to_currency(statistic.total_price, precision: 0) %></td>
   <td class="sizing-table-statistic text-center"><%= link_to t("orders.view"), admin_monthly_statistics_detail_path(statistic.order_date.month, statistic.order_date.year) %></td>
 </tr>

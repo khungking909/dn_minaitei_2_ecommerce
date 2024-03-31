@@ -9,7 +9,7 @@
     <%= product.category.name %>
   </td>
   <td class="sizing-table text-center">
-    <%= product.price %>
+    <%= number_to_currency(product.price, precision: 0) %>
   </td>
   <td class="sizing-table text-center">
     <%= product.quantity %>

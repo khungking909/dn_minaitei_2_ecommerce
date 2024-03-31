@@ -1,6 +1,6 @@
 <div class="d-flex container-admin">
   <%= render "admin/layouts/sidebar" %>
-  <aside class="col-md-10 ms-5 d-flex flex-column mt-5">
+  <aside class="col-md-10 ms-5 d-flex flex-column mt-5 align-items-center">
       <div class="text-center me-5 w-100 d-flex justify-content-center">
         <h1 class="fw-bold text-danger w-75"><%= uppercase t("admin.statistics.detail_title", month: @month, year: @year) %></h1>
       </div>
@@ -19,6 +19,6 @@
         </tbody>
       </table>
       <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
-      <div class="w-75 d-flex justify-content-end "><h3>  <%= t("admin.statistics.total_price") %> : <%= total_price_monthly_statistic @statistics_detail %></h3> </div>
+      <div class="w-75 d-flex justify-content-end "><h3>  <%= t("admin.statistics.total_price") %> : <%= number_to_currency(total_price_monthly_statistic(@statistics_detail), precision: 0) %></h3> </div>
   </aside>
 </div>

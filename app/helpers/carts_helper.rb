@@ -14,7 +14,7 @@ module CartsHelper
         cookies.permanent[:cart] = cart.to_json
       end
     end
-    number_to_currency(total_price)
+    number_to_currency(total_price, precision: 0)
   end
 
   def check_quantity(cart_quantity, product_quantity, action)
