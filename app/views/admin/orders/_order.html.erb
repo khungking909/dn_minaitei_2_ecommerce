@@ -7,7 +7,7 @@
         <%= f.submit  order.products_count , class: "p-2 pe-4 ps-4 text-center" %>
       <% end %>
   </td>
-  <td class="sizing-table-order text-center"><%= total_price order %></td>
+  <td class="sizing-table-order text-center"><%= number_to_currency(total_price(order), precision: 0) %></td>
   <td class="sizing-table-order d-flex flex-column text-center" id= <%= "order_action_#{order.id}"%>>
     <% if  order.status_pending? %>
       <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch, id:"order-form-accept") do |f| %>

@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= link_to product.name, product_path(product) %></h5>
       <%= render "shared/rating" %>
-      <p class="card-text"><%= number_to_currency(product.price) %></p>
+      <p><%= number_to_currency(product.price, precision: 0) %></p>
       <div class="add-to-cart">
         <%= button_to t("products.add_to_cart"), cart_path(product_id: product.id), method: :post, class: "btn btn-primary" %>
       </div>
