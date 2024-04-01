@@ -21,6 +21,7 @@ vi:
     profile: "Trang cá nhân"
     log_out: "Đăng xuất"
     order: "Đơn hàng"
+    admin: "Quản lý"
   products:
     title: "Sản phẩm"
     price: "Giá: %{price}"
@@ -144,6 +145,10 @@ vi:
       review: "Đánh giá"
       reason: "Lý do"
       confirm: "Bạn chắc chắn muốn hủy đơn hàng này?"
+  comments:
+    create:
+      success: "Tạo comment thành công"
+      fail: "Tạo comment thất bại"
   admin:
     products:
       title: "Sản phẩm"

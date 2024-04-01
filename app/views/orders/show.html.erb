@@ -36,7 +36,7 @@
                 <td><%= number_to_currency(subtotal) %></td>
                 <% total_price += subtotal %>
                 <td>
-                  <%= approved_status(@order) %>
+                  <%= approved_status(@order, order_history) %>
                 </td>
               </tr>
             <% end %>

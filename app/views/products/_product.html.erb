@@ -3,7 +3,21 @@
     <%= product_image_tag(product) %>
     <div class="card-body">
       <h5 class="card-title"><%= link_to product.name, product_path(product) %></h5>
-      <%= render "shared/rating" %>
+      <div class="product-rating">
+        <% if product && product.comments.present? %>
+          <% rating = product.comments.average(:rating).to_f.round(2) %>
+        <% else %>
+          <% rating = 0 %>
+        <% end %>
+        <% Settings.DIGIT_5.times do |i| %>
+          <% if rating >= i + 1 %>
+            <i class="bi bi-star-fill" style="color: yellow;"></i>
+          <% else %>
+            <i class="bi bi-star" style="color: yellow;"></i>
+          <% end %>
+        <% end %>
+        <span>(<%= rating %>)</span>
+      </div>
       <p><%= number_to_currency(product.price, precision: 0) %></p>
       <div class="add-to-cart">
         <%= button_to t("products.add_to_cart"), cart_path(product_id: product.id), method: :post, class: "btn btn-primary" %>

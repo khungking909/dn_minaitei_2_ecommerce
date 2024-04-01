@@ -21,6 +21,7 @@ en:
     profile: "Profile"
     log_out: "Log out"
     order: "Order"
+    admin: "Admin"
   products:
     title: "Products"
     price: "Price: %{price}"
@@ -144,6 +145,10 @@ en:
       review: "Review"
       reason: "Reason"
       confirm: "Are you sure you want to cancel this order?"
+  comments:
+    create:
+      success: "Create comment successfully"
+      fail: "Create comment failed"
   admin:
     products:
       title: "Products"

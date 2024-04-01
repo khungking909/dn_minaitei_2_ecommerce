@@ -11,7 +11,7 @@ module ProductsHelper
 
   def render_comments(comments)
     if comments.present?
-      render("products/comment", collection: comments)
+      render(partial: "products/comment", locals: { comments: comments })
     else
       content_tag(:p, t("products.no_comment"))
     end

@@ -2,7 +2,8 @@
 
 class CartsController < ApplicationController
   before_action :load_cart
-  before_action :load_product, only: %i[create destroy]
+  before_action :load_current_account, only: :create
+  before_action :load_product, only: %i(create destroy)
   before_action :set_cart, only: :create
   before_action :load_cart_product, only: :show
 
@@ -73,5 +74,12 @@ class CartsController < ApplicationController
       product ? @cart_products[product_id] = product : @cart.delete(product_id)
     end
     cookies.permanent[:cart] = @cart.to_json
+  end
+
+  def load_current_account
+    return if logged_in?
+
+    flash[:error] = t("sessions.mess_pls_login")
+    redirect_to(login_path)
   end
 end
