@@ -10,7 +10,7 @@
     <%= render "shared/list_categories" %>
     <div class="col-md-9 justify-content-center">
       <%= render "shared/filter" %>
-      <div class="product-list">
+      <div class="row">
         <%= (render(@products)) || t("products.empty") %>
       </div>
       <div class="pagination justify-content-center">
