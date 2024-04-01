@@ -1,15 +1,42 @@
 workspace: true
 
 stages:
-- rubocop
+  - build
+  - test
 
 jobs:
-  - name: test:rubocop
-    stage: rubocop
+  - name: build:prepare
+    stage: build
     image: cimg/ruby:3.2.0
     script:
-    - gem install rubocop
-    - gem install rubocop-rails
-    - gem install rubocop-performance
-    - gem install rubocop-rspec
-    - rubocop
+      - sudo cp database-ci.yml config/database.yml
+      - bundle config set path 'vendor/bundle'
+      - sudo gem update --system
+      - sudo bundle install
+    cache:
+      - key: vendor_$CI_BRANCH
+        paths:
+          - vendor/bundle
+  - name: test:rubocop
+    stage: test
+    image: cimg/ruby:3.2.0
+    script:
+      - gem install rubocop
+      - gem install rubocop-rails
+      - gem install rubocop-performance
+      - gem install rubocop-rspec
+      - rubocop
+  - name: test:rspec
+    stage: test
+    image: cimg/ruby:3.2.0
+    services:
+      - image: mysql:5.7.22
+        name: mysql-test
+        environment:
+          MYSQL_DATABASE: db-test
+          MYSQL_USER: user-test
+          MYSQL_PASSWORD: password-test
+          MYSQL_ROOT_PASSWORD: password-test
+    script:
+      - sudo RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
+      - bundle exec rspec
