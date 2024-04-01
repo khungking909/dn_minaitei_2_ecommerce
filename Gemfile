@@ -26,6 +26,8 @@ gem "mysql2", "~> 0.5"
 gem "faker", "2.21.0"
 gem "pagy"
 gem "puma", ">= 5.0"
+gem "simplecov"
+gem "simplecov-rcov"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -60,6 +62,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
   gem "dotenv", require: "dotenv/load"
+  gem "factory_bot_rails"
+  gem "rspec-rails"
 end
 
 group :development do
