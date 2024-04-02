@@ -19,10 +19,8 @@ gem "dotenv-rails", groups: %i[development test]
 gem "rails-controller-testing"
 gem "rails-i18n"
 gem "sprockets-rails"
-
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "faker", "2.21.0"
 gem "pagy"
