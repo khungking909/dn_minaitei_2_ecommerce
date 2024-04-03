@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples("login fails") do |method, action|
+  let!(:user_login) { create(:account, role: Account.roles[:user]) }
+
   it "login fails" do
     perform_action(method, action)
 
@@ -10,8 +12,7 @@ RSpec.shared_examples("login fails") do |method, action|
   end
 
   it "not admin" do
-    @user = create(:account, role: Account.roles[:user])
-    log_in @user
+    log_in user_login
 
     perform_action(method, action)
 
