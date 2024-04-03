@@ -51,7 +51,7 @@ brands.each do |brand_name|
       is_deleted: false
     )
 
-    file_path = "/home/thanhhung/Downloads/image#{n + 1}.jpeg"
+    file_path = ENV["PC_OF_TRUONG_PATH"]
     File.open(file_path) do |file|
       product.image.attach(io: file, filename: "#{product.name}.jpg")
     end
