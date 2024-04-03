@@ -40,6 +40,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
       patch(:update, params: { id: product.id, product: params })
     end
   end
+
   describe "GET #index" do
     let!(:products) { create_list(:product, 6, category_id: category.id) }
 
@@ -50,7 +51,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
         expect(response).to(render_template("index"))
         expect(assigns(:products)).to(all(be_a(Product)))
         expect(assigns(:products).count).to(eq(5))
-        expect(assigns(:pagy).count).to(eq(Product.count))
+        expect(assigns(:pagy).count).to(eq(6))
         expect(response).to(have_http_status(:success))
       end
     end
@@ -72,11 +73,11 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
 
       context "render edit fails" do
         it "render edit fails" do
-          get :edit, params: { id: 9_999_999_999_999_999 }
+          get :edit, params: { id: -1 }
 
           expect(flash[:admin_error]).to(eq(I18n.t("admin.products.load.not_found")))
           expect(response).to(have_http_status(:found))
-          expect(response).to(redirect_to(admin_orders_path))
+          expect(response).to(redirect_to(admin_products_path))
         end
       end
     end
@@ -104,9 +105,8 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
 
       context "render update sucess" do
         it "render update success" do
-          @product = create(:product, category_id: category.id)
-          @params = {
-            id: @product.id,
+          params = {
+            id: product.id,
             product: {
               name: Faker::Name.name,
               price: rand(5..100),
@@ -116,19 +116,20 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
             }
           }
 
-          patch :update, params: @params
+          patch :update, params: params
 
-          expect(assigns(:product).name).to(eq(@params[:product][:name]))
+          expect(assigns(:product).name).to(eq(params[:product][:name]))
           expect(flash[:admin_success]).to(eq(I18n.t("admin.products.update.success")))
           expect(response).to(redirect_to(admin_products_path))
         end
       end
 
       context "render update fails" do
+        let!(:product_update) { create(:product, category_id: category.id, name: "Iphone") }
+
         it "render update fails with" do
-          @product = create(:product, category_id: category.id, name: "Iphone")
           params = {
-            id: @product.id,
+            id: product_update.id,
             product: {
               name: nil,
               price: nil,
@@ -140,7 +141,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
 
           patch :update, params: params
 
-          expect(Product.last.name).to(eq(@product.name))
+          expect(Product.last.name).to(eq(product_update.name))
           expect(response).to(render_template(:edit))
           expect(response).to(have_http_status(:unprocessable_entity))
         end
@@ -192,9 +193,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
 
       context "delete sucess" do
         it "delete success" do
-          @product = create(:product, category_id: category.id)
-
-          delete(:destroy, params: { id: @product.id })
+          delete(:destroy, params: { id: product.id })
 
           expect(assigns(:product).is_deleted).to(eq(true))
           expect(flash[:admin_success]).to(eq(I18n.t("admin.products.delete.success")))
@@ -204,12 +203,24 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
       end
 
       context "delete fails" do
+        let!(:product_delete) { create(:product, category_id: category.id) }
+        let!(:order_delete) { create(:order, account_id: current_account.id) }
+        let!(:order_history_delete) { create(:order_history, order_id: order_delete.id, product_id: product_delete.id) }
+
         it "delete fails with" do
-          delete(:destroy, params: { id: 99_999_999_999_999_999 })
+          delete(:destroy, params: { id: -1 })
 
           expect(flash[:admin_error]).to(eq(I18n.t("admin.products.load.not_found")))
           expect(response).to(have_http_status(:found))
-          expect(response).to(redirect_to(admin_orders_path))
+          expect(response).to(redirect_to(admin_products_path))
+        end
+
+        it "delete fails with product of order status pending" do
+          delete(:destroy, params: { id: product_delete.id })
+
+          expect(flash[:admin_error]).to(eq(I18n.t("admin.products.delete.fail")))
+          expect(response).to(have_http_status(:found))
+          expect(response).to(redirect_to(admin_products_path))
         end
       end
     end

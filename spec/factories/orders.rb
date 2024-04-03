@@ -6,6 +6,5 @@ FactoryBot.define do
     receiver_name { Faker::Name.name }
     receiver_address { Faker::Address.full_address }
     receiver_phone_number { Faker::PhoneNumber.phone_number }
-    status { rand(0..3) }
   end
 end

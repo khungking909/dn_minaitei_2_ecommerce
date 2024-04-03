@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.shared_context("with a logged-in with admin") do |method, action|
+  let!(:admin_login) { create(:account, role: Account.roles[:admin]) }
+
   before do
-    @admin = create(:account, role: Account.roles[:admin])
-    log_in(@admin)
+    log_in(admin_login)
     @initial_count = Product.count
     perform_action(method, action)
   end

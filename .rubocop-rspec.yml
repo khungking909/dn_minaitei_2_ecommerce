@@ -54,3 +54,5 @@ RSpec/VerifiedDoubles:
 
 RSpec/VoidExpect:
   Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

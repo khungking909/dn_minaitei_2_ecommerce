@@ -52,7 +52,7 @@ class Admin::ProductsController < Admin::AdminController
     return if @product
 
     flash[:admin_error] = t("admin.products.load.not_found")
-    redirect_to(admin_orders_path)
+    redirect_to(admin_products_path)
   end
 
   def filter_products
