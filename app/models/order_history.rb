@@ -18,4 +18,10 @@ class OrderHistory < ApplicationRecord
     .where(order: { status: Order.statuses[:approved] })
     .where("YEAR(order.created_at) = ? AND MONTH(order.created_at) = ?", year, month)
   end)
+  def self.statistical_detail_sum(year:, month:)
+    joins(:order)
+      .where(order: { status: Order.statuses[:approved] })
+      .where("YEAR(order.created_at) = ? AND MONTH(order.created_at) = ?", year, month)
+      .sum("order_histories.quantity * order_histories.current_price")
+  end
 end
