@@ -87,7 +87,6 @@ RSpec.describe(Admin::OrdersController, type: :controller) do
 
       context "when order.status = 'pending' is " do
         it "sets flash[:admin_success] with 'accept_order' message" do
-          order_pending_status = create(:order, account_id: account.id)
           patch :update, params: { id: order_pending_status.id, status: :accept, comment: :accept }
 
           expect(assigns(:order).reload.status_approved?).to(eq(true))
@@ -96,7 +95,6 @@ RSpec.describe(Admin::OrdersController, type: :controller) do
         end
 
         it "sets flash[:admin_success] with 'refuse_order' message" do
-          order_pending_status = create(:order, account_id: account.id)
           patch :update, params: { id: order_pending_status.id, status: :other_status_difficult_accept, comment: :refuse }
 
           expect(assigns(:order).reload.status_reject?).to(eq(true))

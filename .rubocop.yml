@@ -194,6 +194,8 @@ Metrics/PerceivedComplexity:
 # Most of the Naming configurations are enabled by default, we should enable or disable configuration depending on what the team needs
 Naming/MemoizedInstanceVariableName:
   Enabled: false
+Naming/VariableNumber:
+  Enabled: false
 ### Example
 ##
 #  Naming/VariableNumber:
