@@ -39,4 +39,4 @@ jobs:
           MYSQL_ROOT_PASSWORD: password-test
     script:
       - sudo RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
-      - bundle exec rspec
+      - sudo bundle exec rspec

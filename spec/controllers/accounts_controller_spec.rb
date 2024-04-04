@@ -17,10 +17,29 @@ RSpec.describe(AccountsController, type: :controller) do
 
   describe "POST #create" do
     context "with valid attributes" do
-      before { post :create, params: { account: attributes_for(:account) } }
+      let(:valid_params) do
+        {
+          account: {
+            name: "Test User",
+            email: "test@example.com",
+            address: "123 Test Street",
+            phone_number: "1234567890",
+            password: "password",
+            password_confirmation: "password"
+          }
+        }
+      end
+
+      before { post :create, params: valid_params }
 
       it "creates a new account" do
-        expect(assigns(:account).id).to(be_present)
+        expect(Account.last).to(have_attributes(
+                                  name: "Test User",
+                                  email: "test@example.com",
+                                  address: "123 Test Street",
+                                  phone_number: "1234567890"
+                                )
+                               )
       end
 
       it "redirects to root path" do
@@ -33,10 +52,20 @@ RSpec.describe(AccountsController, type: :controller) do
     end
 
     context "with invalid attributes" do
-      before do
-        invalid_attributes = attributes_for(:account).merge(name: nil, email: "invalid_email", password: "123", password_confirmation: "123456")
-        post :create, params: { account: invalid_attributes }
+      let(:invalid_attributes) do
+        {
+          account: {
+            name: "",
+            email: "",
+            address: "",
+            phone_number: "",
+            password: "",
+            password_confirmation: ""
+          }
+        }
       end
+
+      before { post :create, params: invalid_attributes }
 
       it "does not save the new account" do
         expect(assigns(:account).id).not_to(be_present)

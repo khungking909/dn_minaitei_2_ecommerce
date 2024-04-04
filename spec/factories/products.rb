@@ -7,5 +7,6 @@ FactoryBot.define do
     quantity { Faker::Number.between(from: 1, to: 100) }
     category { association :category }
     description { Faker::Lorem.paragraph }
+    image { Rack::Test::UploadedFile.new(File.open(Rails.root.join("spec/files/image_test.jpg").to_s)) }
   end
 end
