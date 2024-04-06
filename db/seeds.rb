@@ -35,7 +35,7 @@ brands = %w[
     role: Account.roles[:user],
     address: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.phone_number,
-    password_digest: BCrypt::Password.create(Faker::Internet.password)
+    encrypted_password: BCrypt::Password.create(Faker::Internet.password)
   )
 end
 

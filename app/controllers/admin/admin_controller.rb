@@ -8,7 +8,6 @@ class Admin::AdminController < ApplicationController
   def author_admin
     return if current_account.admin?
 
-    flash[:danger] = t("http_error.forbidden")
-    redirect_to(login_path)
+    redirect_to("/403.html")
   end
 end

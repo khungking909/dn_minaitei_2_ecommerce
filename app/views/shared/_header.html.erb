@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <% if logged_in? %>
+        <% if account_signed_in? %>
           <li class="nav-item">
             <%= link_to t("header.home"), root_path, class: "nav-link" %>
           </li>
@@ -21,7 +21,7 @@
                 <%= link_to t("header.admin"), admin_products_path, class: "dropdown-item" %>
               <% end %>
               <%= link_to t("header.order"), orders_path, class: "dropdown-item" %>
-              <%= link_to t("header.log_out"), logout_path, class: "dropdown-item" %>
+              <%= link_to t("header.log_out"), destroy_account_session_path, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
@@ -29,10 +29,10 @@
             <%= link_to t("header.home"), root_url, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to t("header.cart"), cart_path, class: "nav-link" %>
+            <%= link_to t("header.cart"), new_account_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to t("header.login"), login_path, class: "nav-link" %>
+            <%= link_to t("header.login"), new_account_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

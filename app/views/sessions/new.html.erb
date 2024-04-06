@@ -1,9 +1,9 @@
-<%= render "layouts/flash" %>
 <div class="row">
   <div class="col-md-4 offset-md-1">
     <h2 class = "sign-up-title"><%= uppercase t("accounts.login_customer") %></h2>
     <h5><%= t("accounts.login_customer_message") %></h5>
-    <%= form_for :session, class: "new_account", url: login_path do |f| %>
+    <%= form_for resource, as: resource_name, url: session_path(resource_name), class: "new_account" do |f| %>
+      <%= render "layouts/flash" %>
       <%= f.email_field :email, placeholder: t("place_holder.email"), class: "glyphicon" %>
       <%= f.password_field :password, placeholder: t("place_holder.password"), class: "glyphicon" %>
       <div>
@@ -15,7 +15,7 @@
   <div class="col-md-4 offset-md-2">
     <h1 class = "sign-up-title"><%= uppercase t("accounts.rediect_login") %></h1>
     <h5 style = "margin-bottom: 40px"><%= t("accounts.register_customer_message") %></h5>
-    <%= link_to new_account_path,  class: "btn-redirect"  do %>
+    <%= link_to new_account_registration_path,  class: "btn-redirect"  do %>
       <%= uppercase t "accounts.create"%>
     <% end %>
 

@@ -5,7 +5,6 @@ require "support/shared_context/login_with_admin_context"
 require "support/shared_context/login_fails_context"
 
 RSpec.describe(Admin::OrdersController, type: :controller) do
-  include SessionsHelper
   include OrdersHelper
 
   let(:admin_user) { FactoryBot.create(:account, role: Account.roles[:admin], email: Faker::Internet.email, password: Faker::Internet.password) }
