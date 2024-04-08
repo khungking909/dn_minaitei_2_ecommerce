@@ -20,4 +20,8 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:name, :email, :address, :phone_number, :password, :password_confirmation)
   end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_session_path(resource)
+  end
 end

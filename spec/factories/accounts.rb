@@ -7,5 +7,6 @@ FactoryBot.define do
     address { Faker::Address.full_address }
     password { Faker::Internet.password }
     password_confirmation { password }
+    confirmed_at { Time.zone.now }
   end
 end
