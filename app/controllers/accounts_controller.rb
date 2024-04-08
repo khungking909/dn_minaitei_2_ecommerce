@@ -1,23 +1,11 @@
 # frozen_string_literal: true
 
-class AccountsController < ApplicationController
-  def new
-    @account = Account.new
-  end
+class AccountsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def create
-    @account = Account.new(account_params)
-    if @account.save
-      flash[:success] = t("accounts.register_success")
-      redirect_to(root_path)
-    else
-      render(:new, status: :unprocessable_entity)
-    end
-  end
+  protected
 
-  private
-
-  def account_params
-    params.require(:account).permit(:name, :email, :address, :phone_number, :password, :password_confirmation)
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :address, :phone_number) }
   end
 end

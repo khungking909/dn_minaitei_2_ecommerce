@@ -5,13 +5,17 @@
         <div class="alert alert-danger">
           <%= flash[:danger] %>
         </div>
-      <% when flash[:success] %>
-        <div class="alert alert-success">
-          <%= flash[:success] %>
+        <% when flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
         </div>
       <% when flash[:error] %>
         <div class="alert alert-warning">
           <%= flash[:error] %>
+        </div>
+      <% when flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
         </div>
       <% when flash[:info] %>
         <div class="alert alert-dark">

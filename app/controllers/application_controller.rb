@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  include SessionsHelper
+  include Devise::Controllers::Helpers
 
   before_action :set_locale
 
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in_user
-    return if logged_in?
+    return if account_signed_in?
 
     flash[:danger] = t("sessions.mess_pls_login")
-    redirect_to(login_path)
+    redirect_to(new_account_session_path)
   end
 end

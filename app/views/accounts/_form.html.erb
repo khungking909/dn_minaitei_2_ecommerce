@@ -1,13 +1,13 @@
 <%= render "shared/error_messages", object: f.object %>
 <%= f.label t "accounts.personal_information" %>
-<%= f.text_field :name, placeholder: t("place_holder.name"), class: "glyphicon"  %>
-<%= f.text_field :address, placeholder: t("place_holder.address"), class: "glyphicon"  %>
-<%= f.text_field :phone_number, placeholder: t("place_holder.phone_number"), class: "glyphicon"  %>
+<%= f.text_field :name, placeholder: t("place_holder.name"), class: "w-100"  %>
+<%= f.text_field :address, placeholder: t("place_holder.address"), class: "w-100"  %>
+<%= f.text_field :phone_number, placeholder: t("place_holder.phone_number"), class: "w-100"  %>
 
 <%= f.label t("accounts.sign_in_information")%>
-<%= f.email_field :email, placeholder: t("place_holder.email"), class: "glyphicon" %>
-<%= f.password_field :password, placeholder: t("place_holder.password"), class: "glyphicon" %>
-<%= f.password_field :password_confirmation, placeholder: t("place_holder.password_confirmation"), class: "glyphicon" %>
+<%= f.email_field :email, placeholder: t("place_holder.email"), class: "w-100" %>
+<%= f.password_field :password, placeholder: t("place_holder.password"), class: "w-100" %>
+<%= f.password_field :password_confirmation, placeholder: t("place_holder.password_confirmation"), class: "w-100" %>
 <div class = "col-md-12" >
   <%= f.button uppercase(t("back")), class:"form-btn-back", onclick: "window.history.back();"  %>
   <%= f.submit uppercase(t("accounts.create")), class:"form-btn-submit" %>

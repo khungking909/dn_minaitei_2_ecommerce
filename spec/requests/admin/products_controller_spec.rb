@@ -5,8 +5,6 @@ require "support/shared_context/login_with_admin_context"
 require "support/shared_context/login_fails_context"
 
 RSpec.describe(Admin::ProductsController, type: :controller) do
-  include SessionsHelper
-
   let(:category) { create(:category) }
   let(:product) { create(:product, category_id: category.id) }
   let(:params) do
@@ -204,7 +202,8 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
 
       context "delete fails" do
         let!(:product_delete) { create(:product, category_id: category.id) }
-        let!(:order_delete) { create(:order, account_id: current_account.id) }
+        let!(:account) { create(:account) }
+        let!(:order_delete) { create(:order, account_id: account.id) }
         let!(:order_history_delete) { create(:order_history, order_id: order_delete.id, product_id: product_delete.id) }
 
         it "delete fails with" do

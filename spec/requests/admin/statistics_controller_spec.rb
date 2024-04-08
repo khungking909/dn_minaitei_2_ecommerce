@@ -5,8 +5,6 @@ require "support/shared_context/login_with_admin_context"
 require "support/shared_context/login_fails_context"
 
 RSpec.describe(Admin::StatisticsController, type: :controller) do
-  include SessionsHelper
-
   let(:category) { create(:category) }
   let(:product) { create(:product, category_id: category.id) }
   let(:account) { FactoryBot.create(:account) }
