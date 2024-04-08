@@ -8,4 +8,8 @@ class AccountsController < Devise::RegistrationsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :name, :address, :phone_number) }
   end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_session_path(resource)
+  end
 end

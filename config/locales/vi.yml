@@ -72,10 +72,16 @@ vi:
     personal_information: "Thông tin cá nhân"
     sign_in_information: "Thông tin đăng nhập"
     create: "TẠO TÀI KHOẢN"
+    resend: "xác nhận"
+    confirmation_title: "Gửi Lại Xác Nhận"
     login_customer: "Đăng nhập Khách hàng"
     login_customer_message: "Nếu bạn đã có tài khoản, hãy đăng nhập bằng địa chỉ email của bạn."
     rediect_login: "Khách hàng Mới"
     register_customer_message: "Tạo tài khoản mang lại nhiều lợi ích: thanh toán nhanh hơn, lưu nhiều địa chỉ hơn, theo dõi đơn hàng và nhiều hơn nữa."
+    registrations:
+      signed_up: "Chào mừng %{email}!"
+      confirm_email: "Bạn có thể xác nhận tài khoản email của mình thông qua liên kết dưới đây:"
+      confirm_my_account: "Xác nhận"
   place_holder:
     name: "Nhập tên của bạn *"
     email: "Nhập email của bạn *"
