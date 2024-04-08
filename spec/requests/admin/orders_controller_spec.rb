@@ -81,6 +81,10 @@ RSpec.describe(Admin::OrdersController, type: :controller) do
     let!(:order_pending_status) { create(:order, account_id: account.id) }
     let!(:order_pending_approved) { create(:order, account_id: account.id, status: Order.statuses[:approved]) }
 
+    before do
+      allow(CustomerMailer).to(receive(:send_status_order_mail).and_return(double(deliver_now: true)))
+    end
+
     context "when login success and render success" do
       include_context "with a logged-in with admin", :patch, :update
 

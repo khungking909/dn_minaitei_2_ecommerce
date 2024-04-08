@@ -72,10 +72,16 @@ en:
     personal_information: "Personal Information"
     sign_in_information: "Sign-in Information"
     create: "CREATE AN ACCOUNT"
+    resend: "Confirmation"
+    confirmation_title: "Resend Confirmation"
     login_customer: "Customers Login"
     login_customer_message: "If you have an account, sign in with your email address."
     rediect_login: "New Customers"
     register_customer_message: "Creating an account has many benefits: check out faster, keep more than one address, track orders and more."
+    registrations:
+      signed_up: "Welcome %{email}!"
+      confirm_email: "You can confirm your account email through the link below:"
+      confirm_my_account: "Confirm"
   place_holder:
     name: "Enter your name *"
     email: "Enter your email *"
