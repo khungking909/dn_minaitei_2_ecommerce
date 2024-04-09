@@ -82,6 +82,16 @@ vi:
       signed_up: "Chào mừng %{email}!"
       confirm_email: "Bạn có thể xác nhận tài khoản email của mình thông qua liên kết dưới đây:"
       confirm_my_account: "Xác nhận"
+    reset_passwords:
+      title: "Đặt lại mật khẩu"
+      mail_introduction: "Ai đó đã yêu cầu một liên kết để thay đổi mật khẩu của bạn. Bạn có thể thực hiện điều này qua liên kết dưới đây."
+      mail_btn_change_password: "Thay đổi mật khẩu"
+      remind: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
+      remind_line_2: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết trên và tạo một mật khẩu mới."
+      change_password: "Thay Đổi Mật Khẩu"
+      password_confirm: "Xác Nhận Mật Khẩu Mới"
+      new_password: "Mật Khẩu Mới"
+      minimum_character: "Tối thiểu %{num} ký tự"
   place_holder:
     name: "Nhập tên của bạn *"
     email: "Nhập email của bạn *"

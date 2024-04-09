@@ -47,11 +47,10 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: ENV["HOST"] }
   config.action_mailer.smtp_settings = {
-    address: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+    address: "smtp.gmail.com",
+    port: 587,
     user_name: ENV["USER_EMAIL"],
     password: ENV["USER_PASSWORD"],
     authentication: "plain",

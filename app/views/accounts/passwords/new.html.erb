@@ -1,0 +1,12 @@
+<div class="row">
+  <%= form_for(@account, url: password_path(@account), html: { method: :post }) do |f| %>
+  <div class="col-md-4 offset-md-4 d-flex flex-column ">
+      <h2 class="fw-bold mb-3 mt-3"><%= uppercase(t("accounts.reset_passwords.title")) %></h2>
+      <%= render "shared/error_messages", object: resource %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, class:"w-100", autocomplete: "email" %>
+      <%= f.submit uppercase(t("accounts.reset_passwords.title")), class:"form-btn-submit" %>
+      <p class= "form-btn-back text-center" onclick= "window.history.back();"><%= uppercase(t("back"))  %></p>
+    </div>
+  <% end %>
+</div>
