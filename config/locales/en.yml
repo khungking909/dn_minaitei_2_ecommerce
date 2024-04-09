@@ -92,6 +92,9 @@ en:
       password_confirm: "Confirm new password"
       new_password: "New password"
       minimum_character: "%{num} characters minimum"
+    mailer:
+      subject_oauth: "Password"
+      password_oauth: "Password : %{password}. Please change your password!!!"
   place_holder:
     name: "Enter your name *"
     email: "Enter your email *"
@@ -204,3 +207,5 @@ en:
   sure: "Are you sure?"
   modal:
     comment: "Comment"
+  oauthes:
+    google: "Login with Google"
