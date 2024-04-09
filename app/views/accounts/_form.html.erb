@@ -9,6 +9,6 @@
 <%= f.password_field :password, placeholder: t("place_holder.password"), class: "w-100" %>
 <%= f.password_field :password_confirmation, placeholder: t("place_holder.password_confirmation"), class: "w-100" %>
 <div class = "col-md-12" >
-  <%= f.button uppercase(t("back")), class:"form-btn-back", onclick: "window.history.back();"  %>
-  <%= f.submit uppercase(t("accounts.create")), class:"form-btn-submit" %>
+  <%= f.submit uppercase(t("accounts.create")), class:"form-btn-submit w-100" %>
+  <p class= "form-btn-back text-center" onclick= "window.history.back();"><%= uppercase(t("back"))  %></p>
 </div>

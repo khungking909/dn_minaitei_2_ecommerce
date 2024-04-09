@@ -18,6 +18,8 @@
     <%= link_to new_account_registration_path,  class: "btn-redirect"  do %>
       <%= uppercase t "accounts.create"%>
     <% end %>
-
+    <%= link_to new_account_confirmation_path,  class: "btn-redirect ms-3"  do %>
+      <%= uppercase t("accounts.resend")%>
+    <% end %>
   </div>
 </div>
