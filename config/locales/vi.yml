@@ -92,6 +92,9 @@ vi:
       password_confirm: "Xác Nhận Mật Khẩu Mới"
       new_password: "Mật Khẩu Mới"
       minimum_character: "Tối thiểu %{num} ký tự"
+    mailer:
+      subject_oauth: "Mật khẩu"
+      password_oauth: "Mật khẩu : %{password}. Vui lòng thay đổi mật khẩu của bạn!!!"
   place_holder:
     name: "Nhập tên của bạn *"
     email: "Nhập email của bạn *"
@@ -204,3 +207,5 @@ vi:
   sure: "Bạn chắc chắn chứ?"
   modal:
     comment: "Bình luận"
+  oauthes:
+    google: "Đăng nhập với Google"

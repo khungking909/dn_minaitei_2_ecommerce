@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :accounts, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauthes" }
   scope "(:locale)", locale: /en|vi/ do
     root "products#index"
     resources :products, only: %i(index show) do
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
         patch "/cancel", to: "orders#cancel"
       end
     end
-    devise_for :accounts, controllers: { sessions: "sessions", registrations: "accounts" }
+    devise_for :accounts, controllers: { sessions: "sessions", registrations: "accounts" }, skip: :omniauth_callbacks
     namespace :admin do
       resources :products
       resources :users
