@@ -7,7 +7,7 @@
       <%= f.email_field :email, placeholder: t("place_holder.email"), class: "glyphicon" %>
       <%= f.password_field :password, placeholder: t("place_holder.password"), class: "glyphicon" %>
       <div>
-        <%= link_to t("sessions.foget_password") , "#", class: "forget_password_link"%>
+        <%= link_to t("sessions.foget_password") , new_account_password_path, class: "forget_password_link"%>
         <%= f.submit uppercase(t("sessions.submit_btn")), class:"form-btn-submit" %>
       </div>
     <% end %>

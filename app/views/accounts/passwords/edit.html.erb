@@ -1,0 +1,22 @@
+<%= form_for(@account, url: password_path(@account), html: { method: :put }) do |f| %>
+  <%= render "shared/error_messages", object: resource %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="field w-100 d-flex flex-column align-items-center">
+    <h2><%= t("accounts.reset_passwords.change_password") %></h2>
+    <%= f.label :password, t("accounts.reset_passwords.new_password") %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= t("accounts.reset_passwords.minimum_character", num: @minimum_password_length) %>)</em><br />
+    <% end %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "w-25" %>
+  </div>
+
+  <div class="field d-flex flex-column align-items-center w-100">
+    <%= f.label :password_confirmation, t("accounts.reset_passwords.password_confirm") %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-25" %>
+  </div>
+
+  <div class="actions d-flex flex-column align-items-center w-100">
+    <%= f.submit t("accounts.reset_passwords.change_password"), class:"w-25 form-btn-submit" %>
+  </div>
+<% end %>

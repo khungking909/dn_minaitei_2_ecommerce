@@ -82,6 +82,16 @@ en:
       signed_up: "Welcome %{email}!"
       confirm_email: "You can confirm your account email through the link below:"
       confirm_my_account: "Confirm"
+    reset_passwords:
+      title: "Reset Password"
+      mail_introduction: "Someone has requested a link to change your password. You can do this through the link below."
+      mail_btn_change_password: "Change Password"
+      remind: "If you didn't request this, please ignore this email."
+      remind_line_2: "Your password won't change until you access the link above and create a new one."
+      change_password: "Change Password"
+      password_confirm: "Confirm new password"
+      new_password: "New password"
+      minimum_character: "%{num} characters minimum"
   place_holder:
     name: "Enter your name *"
     email: "Enter your email *"
