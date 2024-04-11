@@ -11,4 +11,10 @@ class Admin::StatisticsController < Admin::AdminController
     @statistics_detail_sum = OrderHistory.statistical_detail_sum(year: @year, month: @month)
     @pagy, @statistics_detail = pagy(OrderHistory.statistical_detail(@year, @month), items: Settings.DIGIT_5)
   end
+
+  private
+
+  def authorize_action
+    authorize!(:access_denied, :controller)
+  end
 end

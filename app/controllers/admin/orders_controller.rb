@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class Admin::OrdersController < Admin::AdminController
-  before_action :load_order, only: %i(update show)
+  load_resource only: %i(show update)
+  authorize_resource only: %i(index show update)
   before_action :check_status, only: :update
 
   def index
     @pagy, @orders = pagy(filter_orders, items: Settings.DIGIT_2)
+    authorize!(:read, @orders)
   end
 
   def show
@@ -34,14 +36,6 @@ class Admin::OrdersController < Admin::AdminController
   end
 
   private
-
-  def load_order
-    @order = Order.find_by(id: params[:id])
-    return if @order
-
-    flash[:admin_error] = t("orders.not_found")
-    redirect_to(admin_orders_path)
-  end
 
   def check_status
     return if @order.status_pending?

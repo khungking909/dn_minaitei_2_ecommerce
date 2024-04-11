@@ -11,8 +11,10 @@
       <%= link_to admin_orders_path, class:"nav-selection bg-secondary" do %>
        <%= t("orders.title") %>
       <% end %>
-      <%= link_to admin_monthly_statistics_path, class:"nav-selection bg-secondary" do %>
-       <%= t("admin.statistics.title") %>
-      <% end %>
+      <% if can? :access_denied, :controller %>
+        <%= link_to admin_monthly_statistics_path, class:"nav-selection bg-secondary" do %>
+          <%= t("admin.statistics.title") %>
+        <% end %>
+      <% end%>
     </div>
   </aside>

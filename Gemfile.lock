@@ -97,6 +97,7 @@ GEM
       sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
+    cancancan (3.5.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -381,6 +382,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass (= 3.4.1)
   byebug
+  cancancan
   capybara
   config
   connection_pool

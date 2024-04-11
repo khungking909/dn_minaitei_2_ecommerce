@@ -209,3 +209,4 @@ en:
     comment: "Comment"
   oauthes:
     google: "Login with Google"
+  access_denied: "You are not authorized to access this page."

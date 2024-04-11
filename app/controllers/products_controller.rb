@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :load_product, only: :show
+  load_resource only: :show
+  authorize_resource only: %i(index show)
   before_action :show_slider, only: %i[index show]
   before_action :load_categories, only: :index
 
@@ -29,13 +30,5 @@ class ProductsController < ApplicationController
            .sort_by_range_price(*price_range.values)
            .newest
            .get_all_by_name_sort
-  end
-
-  def load_product
-    @product = Product.find_by(id: params[:id])
-    return if @product
-
-    flash[:error] = t("products.load.error")
-    redirect_to(products_path)
   end
 end

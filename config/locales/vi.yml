@@ -209,3 +209,4 @@ vi:
     comment: "Bình luận"
   oauthes:
     google: "Đăng nhập với Google"
+  access_denied: "Bạn không được phép truy cập trang này."

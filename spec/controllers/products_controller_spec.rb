@@ -39,14 +39,10 @@ RSpec.describe(ProductsController, type: :controller) do
     end
 
     context "when product does not exist" do
-      before { get :show, params: { id: 0 } }
-
-      it "flash error if product doesn't exist" do
-        expect(flash[:error]).to(eq(I18n.t("products.load.error")))
-      end
+      before { get :show, params: { id: -1 } }
 
       it "redirects to products_path if product is not found" do
-        expect(response).to(redirect_to(products_path))
+        expect(response).to(redirect_to("/404.html"))
       end
     end
   end

@@ -1,20 +1,18 @@
 # frozen_string_literal: true
 
 class Admin::ProductsController < Admin::AdminController
-  before_action :load_product, only: %i(update edit destroy)
+  load_and_authorize_resource
+  skip_load_resource only: %i(index new create)
 
   def index
     @pagy, @products = pagy(filter_products, items: Settings.DIGIT_5)
     @top_10_outstanding ||= Product.product_outstanding
   end
 
-  def edit
-    @hidden_partial = true
-  end
+  def edit; end
 
   def new
     @product = Product.new
-    @hidden_partial = true
   end
 
   def update
@@ -46,14 +44,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   private
-
-  def load_product
-    @product = Product.find_by(id: params[:id])
-    return if @product
-
-    flash[:admin_error] = t("admin.products.load.not_found")
-    redirect_to(admin_products_path)
-  end
 
   def filter_products
     Product.search_by_name(params.dig(:product, :search))

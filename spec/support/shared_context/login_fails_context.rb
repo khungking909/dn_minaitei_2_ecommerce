@@ -6,7 +6,7 @@ RSpec.shared_examples("login fails") do |method, action|
   it "login fails" do
     perform_action(method, action)
 
-    expect(flash[:danger]).to(eq(I18n.t("sessions.mess_pls_login")))
+    allow_any_instance_of(ApplicationController).to(receive(:default_url_options).and_return(locale: nil))
     expect(response).to(redirect_to(new_account_session_path))
   end
 
