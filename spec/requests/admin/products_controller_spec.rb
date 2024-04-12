@@ -73,9 +73,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
         it "render edit fails" do
           get :edit, params: { id: -1 }
 
-          expect(flash[:admin_error]).to(eq(I18n.t("admin.products.load.not_found")))
-          expect(response).to(have_http_status(:found))
-          expect(response).to(redirect_to(admin_products_path))
+          expect(response).to(redirect_to("/404.html"))
         end
       end
     end
@@ -209,9 +207,7 @@ RSpec.describe(Admin::ProductsController, type: :controller) do
         it "delete fails with" do
           delete(:destroy, params: { id: -1 })
 
-          expect(flash[:admin_error]).to(eq(I18n.t("admin.products.load.not_found")))
-          expect(response).to(have_http_status(:found))
-          expect(response).to(redirect_to(admin_products_path))
+          expect(response).to(redirect_to("/404.html"))
         end
 
         it "delete fails with product of order status pending" do

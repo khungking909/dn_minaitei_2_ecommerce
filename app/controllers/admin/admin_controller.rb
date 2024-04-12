@@ -3,11 +3,11 @@
 class Admin::AdminController < ApplicationController
   include OrdersHelper
 
-  before_action :logged_in_user, :author_admin
+  before_action :authenticate_account!, :authorize_action
 
-  def author_admin
-    return if current_account.admin?
+  private
 
-    redirect_to("/403.html")
+  def authorize_action
+    authorize!(:access_denied_user, :controller)
   end
 end

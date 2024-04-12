@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class OrdersController < ApplicationController
+  before_action :authenticate_account!
+  load_resource only: %i(show cancel)
+  authorize_resource only: %i(index show create cancel)
   before_action :parse_cart_data, only: :create
   before_action :find_products, only: :create
-  before_action :load_order, only: %i(show cancel)
-  before_action :logged_in_user, only: :index
 
   def index
     @pagy, @orders = pagy(current_account.orders.order(created_at: :desc), items: Settings.PAGE_10)
@@ -14,7 +15,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
     ActiveRecord::Base.transaction do
       @order.save!
       update_product_quantities!(-Settings.DIGIT_1)
@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
       @order.update!(status: :cancel)
       update_product_quantities!(Settings.DIGIT_1)
     end
-
     flash[:success] = t("orders.cancel.success")
   rescue ActiveRecord::RecordInvalid
     flash[:error] = t("orders.cancel.fail")
@@ -73,14 +72,6 @@ class OrdersController < ApplicationController
       redirect_to(cart_path)
       break
     end
-  end
-
-  def load_order
-    @order = Order.find_by(id: params[:id])
-    return if @order
-
-    flash[:error] = t("orders.not_found")
-    redirect_to(orders_path)
   end
 
   def order_params

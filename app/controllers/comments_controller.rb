@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :load_product, only: :new
-
+  before_action :authenticate_account!
+  load_resource only: :new
+  authorize_resource only: %i(new create)
   def new; end
 
   def create
@@ -17,14 +18,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def load_product
-    @product = Product.find_by(id: params[:product_id])
-    return if @product
-
-    flash[:error] = t("products.load.error")
-    redirect_to(products_path)
-  end
 
   def comment_params
     params.permit(:product_id, :content, :parent_id, :rating).merge(account_id: current_account.id)

@@ -67,9 +67,7 @@ RSpec.describe(Admin::OrdersController, type: :controller) do
         it "render show fails because order not found" do
           get :show, params: { id: -1 }
 
-          expect(flash[:admin_error]).to(eq(I18n.t("orders.not_found")))
-          expect(response).to(have_http_status(:found))
-          expect(response).to(redirect_to(admin_orders_path))
+          expect(response).to(redirect_to("/404.html"))
         end
       end
     end
@@ -120,8 +118,7 @@ RSpec.describe(Admin::OrdersController, type: :controller) do
         it "when update fails because was not found order" do
           patch :update, params: { id: -1, status: :reject }
 
-          expect(flash[:admin_error]).to(eq(I18n.t("orders.not_found")))
-          expect(response).to(redirect_to(admin_orders_path))
+          expect(response).to(redirect_to("/404.html"))
         end
 
         it "when update fails because was activeRecord:Rollback" do

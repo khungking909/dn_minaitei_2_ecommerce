@@ -12,7 +12,7 @@ class Account < ApplicationRecord
          :confirmable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  enum role: { admin: 1, user: 0 }, _default: :user
+  enum role: { user: 0, admin: 1, manager: 2 }, _default: :user
 
   has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
