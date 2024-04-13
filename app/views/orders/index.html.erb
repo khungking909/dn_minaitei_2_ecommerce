@@ -8,7 +8,7 @@
           <th><%= t("orders.columns.receiver_name") %></th>
           <th><%= t("orders.status.title") %></th>
           <th><%= t("orders.columns.quantity") %></th>
-          <th><%= t("orders.columns.created_at") %></th>
+          <th><%= sort_link @search, :created_at, t("orders.columns.created_at"), class:"text-decoration-none text-black"%></th>
           <th><%= t("orders.columns.actions") %></th>
         </tr>
       </thead>

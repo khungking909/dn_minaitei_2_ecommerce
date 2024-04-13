@@ -18,6 +18,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 gem "owlcarousel-rails"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "ransack"
 gem "sassc-rails"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "bcrypt", "3.1.18"

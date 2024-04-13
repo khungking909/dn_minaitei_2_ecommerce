@@ -45,7 +45,7 @@ brands.each do |brand_name|
     product = Product.create(
       name: "#{brand_name} Phone #{n + 1}",
       description: "Description for #{brand_name} Phone #{n + 1}",
-      price: rand(5..200) * 1_000_000,
+      price: rand(5..100) * 1_000_000,
       quantity: rand(1..50),
       category_id: category.id,
       is_deleted: false
