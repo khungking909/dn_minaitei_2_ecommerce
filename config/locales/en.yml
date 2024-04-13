@@ -7,7 +7,7 @@ en:
     phone: "Phone"
     pc: "PC"
   input:
-    search: "Search"
+    search: "Search by product name, Category name, Product description "
   button:
     search: "SEARCH"
   header:
@@ -42,6 +42,14 @@ en:
       title: "Filter"
       brand: "Brand"
       price: "Price"
+      newest: "Newest"
+      hoting: "Hoting"
+      lowering_prices: "Lowering Prices"
+      all: "All"
+      range_5_to_10: "5m to 10m"
+      range_10_to_20: "10m to 20m"
+      range_20_to_50: "20m to 50m"
+      range_50_to_100: "50m to 100m"
     insert: "NEW PRODUCT"
     list_title: "LIST (%{num})"
     name: "Name"

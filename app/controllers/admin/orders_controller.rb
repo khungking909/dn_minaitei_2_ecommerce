@@ -6,8 +6,7 @@ class Admin::OrdersController < Admin::AdminController
   before_action :check_status, only: :update
 
   def index
-    @pagy, @orders = pagy(filter_orders, items: Settings.DIGIT_2)
-    authorize!(:read, @orders)
+    @pagy, @orders = pagy(Order.ransack(params[:search]).result, items: Settings.DIGIT_2)
   end
 
   def show
@@ -42,10 +41,5 @@ class Admin::OrdersController < Admin::AdminController
 
     flash[:admin_error] = t("orders.status_fails")
     redirect_to(admin_orders_path)
-  end
-
-  def filter_orders
-    Order.search_by_name(params.dig(:order, :search))
-         .order_by_status
   end
 end

@@ -8,7 +8,8 @@ class OrdersController < ApplicationController
   before_action :find_products, only: :create
 
   def index
-    @pagy, @orders = pagy(current_account.orders.order(created_at: :desc), items: Settings.PAGE_10)
+    @search = current_account.orders.ransack(params[:q])
+    @pagy, @orders = pagy(@search.result, items: Settings.PAGE_10)
   end
 
   def show; end

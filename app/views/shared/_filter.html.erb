@@ -1,15 +1,23 @@
-<%= form_tag products_path, method: :get do %>
-  <div class="filter">
-    <div class="mb-3">
-      <%= label_tag :category_id, t("products.filter.brand"), class: "form-label" %>
-      <%= select_tag :category_id, options_for_select(@categories), include_blank: true, class: "form-select" %>
+<%= form_for :search, method: :get do |f| %>
+  <div class="filter ">
+    <div class="mb-3 d-flex align-items-center">
+      <%= f.label :category_id_eq, t("products.filter.brand"), class: "form-label mt-1 me-2" %>
+      <%= f.select :category_id_eq, options_for_select(all_select_of_category, selected: params.dig(:search, :category_id_eq) ? params.dig(:search, :category_id_eq) : "" ), class: "form-select" %>
     </div>
 
-    <div class="mb-3">
-      <%= label_tag :price_range, t("products.filter.price"), class: "form-label" %>
-      <%= select_tag :price_range, options_for_select(Settings.price_range), include_blank: true, class: "form-select" %>
+    <div class="mb-3 d-flex align-items-center">
+      <%= f.label :price_in, t("products.filter.price"), class: "form-label mt-1 me-2" %>
+      <%= f.select :price_in, options_for_select(all_select_price_search_product, selected: params.dig(:search, :price_in) ? params.dig(:search, :price_in) : "" ), class: "form-select" %>
     </div>
 
-    <%= submit_tag t("products.filter.title"), class: "btn btn-primary" %>
+    <div class="mb-3 d-flex align-items-center">
+      <%= f.select :created_at_year_lteq, options_for_select(all_select_year_product, selected: params.dig(:search, :created_at_year_lteq) ? params.dig(:search, :created_at_year_lteq) : Time.current.year ), class: "form-select" %>
+    </div>
+
+    <div class="mb-3 d-flex flex-column justify-content-center mt-2">
+      <%= f.button :quantity_gt, value: 0, class:"mb-2 btn btn-primary" do %>
+        <%= t("products.filter.title") %>
+      <% end %>
+    </div>
   </div>
 <% end %>

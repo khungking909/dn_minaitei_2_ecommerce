@@ -13,13 +13,7 @@ class Product < ApplicationRecord
     attachable.variant(:display, resize_to_limit: Settings.SIZE_224x224)
   end
 
-  scope :get_all_by_name_sort, -> { where(is_deleted: false).order(:name) }
-  scope :search_by_name, -> (search_term) { where("name LIKE ?", "%#{search_term}%") if search_term.present? }
-  scope :sort_by_category, -> (category_id) { where(category_id: category_id) if category_id.present? }
-  scope :sort_by_range_price, lambda { |min_price, max_price|
-                                where("price >= ? AND price <= ?", min_price, max_price) if min_price.present? && max_price.present?
-                              }
-  scope :newest, -> { order(created_at: :desc) }
+  scope :price_sort, -> { where(is_deleted: false).order(price: :desc) }
   scope :product_outstanding, (lambda do
                                  select("products.*, SUM(order_histories.quantity) AS total_quantity")
                                  .joins(:order_histories)
@@ -36,14 +30,16 @@ class Product < ApplicationRecord
   validates :description, presence: true, length: { maximum: Settings.DIGIT_1000 }
   validates :quantity, presence: true, numericality: true, length: { maximum: Settings.DIGIT_1000 }
 
-  def self.parse_price_range(price_range)
-    return { min_price: nil, max_price: nil } if price_range.blank?
+  ransacker :created_at_year do
+    Arel::Nodes::SqlLiteral.new("year(products.created_at)")
+  end
 
-    min_price, max_price = price_range.split("-").map do |price|
-      Integer(price.strip, 10) if price.strip.match?(/^\d+$/)
-    end
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[created_at_year description name price quantity created_at]
+  end
 
-    { min_price: min_price, max_price: max_price }
+  def self.ransackable_associations(_auth_object = nil)
+    %w[category]
   end
 
   delegate :name, to: :category, prefix: true

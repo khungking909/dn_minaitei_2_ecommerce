@@ -3,11 +3,9 @@
   <td class="sizing-table-order text-center"><%= order.receiver_name %></td>
   <td class="sizing-table-order text-center"><%= order.receiver_address %></td>
   <td class="sizing-table-order text-center">
-     <%= form_for(:order, url: admin_order_path(order), method: :get) do |f| %>
-        <%= f.submit  order.products_count , class: "p-2 pe-4 ps-4 text-center" %>
-      <% end %>
+      <%= link_to order.products_count, admin_order_path(order), class: "text-black" %>
   </td>
-  <td class="sizing-table-order text-center"><%= number_to_currency(total_price(order), precision: 0) %></td>
+  <td class="sizing-table-order text-center"><%= number_to_currency(total_price(order)*1000000, precision: 0) %></td>
   <td class="sizing-table-order d-flex flex-column text-center" id= <%= "order_action_#{order.id}"%>>
     <% if  order.status_pending? %>
       <%= form_for(:order, url: admin_order_path(order), remote: true, method: :patch, id:"order-form-accept") do |f| %>
@@ -22,11 +20,11 @@
       <% end %>
 
     <% elsif order.status_approved? %>
-      <div class="w-100 text-center fw-bold text-success"><%= t("orders.approved") %></div>
+      <div class="w-100 text-center fw-bold text-success"><%= t("orders.status.approved") %></div>
     <% elsif order.status_reject?  %>
-      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.reject") %></div>
+      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.status.reject") %></div>
     <% else %>
-      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.cancel") %></div>
+      <div class="w-100 text-center fw-bold text-danger"><%= t("orders.status.cancel") %></div>
     <% end %>
   </td>
 </tr>

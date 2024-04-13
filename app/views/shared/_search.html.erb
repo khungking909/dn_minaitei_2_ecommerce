@@ -1,6 +1,6 @@
-<form action="<%= products_path %>" method="get" class="search-form">
+<%= form_for :search, class: "search-form", method: :get do |f| %>
   <div class="input-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("input.search") %>
-    <button type="submit" class="btn"> <%= t("button.search") %> </button>
+    <%= f.search_field :name_or_description_or_category_name_cont, value: params.dig(:search, :name_or_description_or_category_name_cont), class: "form-control", placeholder: t("input.search") %>
+    <%= f.submit t("button.search"), class: "btn" %>
   </div>
-</form>
+<% end %>

@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   before_action :load_categories, only: :index
 
   def index
-    @pagy, @products = pagy(filter_products, items: Settings.PAGE_9)
+    @pagy, @products = pagy(Product.ransack(ransack_params).result.price_sort, items: Settings.PAGE_9)
     @product_outstandings = Product.product_outstanding
   end
 
@@ -23,12 +23,13 @@ class ProductsController < ApplicationController
     @slider = params[:search].blank? && params[:category_id].blank? && params[:price_range].blank?
   end
 
-  def filter_products
-    price_range = Product.parse_price_range(params[:price_range])
-    Product.search_by_name(params[:search])
-           .sort_by_category(params[:category_id])
-           .sort_by_range_price(*price_range.values)
-           .newest
-           .get_all_by_name_sort
+  def ransack_params
+    return params[:search] if params.dig(:search, :price_in).nil? || params.dig(:search, :price_in).blank?
+
+    search = params[:search].to_unsafe_h
+    {
+      **search,
+      price_in: Range.new(*(search[:price_in]).split("..").map { |i| Integer(i, 10) })
+    }
   end
 end

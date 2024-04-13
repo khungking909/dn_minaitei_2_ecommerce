@@ -18,7 +18,7 @@
         <% end %>
         <span>(<%= rating %>)</span>
       </div>
-      <p><%= number_to_currency(product.price, precision: 0) %></p>
+      <p><%= number_to_currency(product.price*1000000, precision: 0) %></p>
       <% if account_signed_in? %>
         <div class="add-to-cart">
           <%= button_to t("products.add_to_cart"), cart_path(product_id: product.id), method: :post, class: "btn btn-primary" %>

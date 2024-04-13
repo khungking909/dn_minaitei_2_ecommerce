@@ -3,5 +3,5 @@
   <td class="sizing-table-order text-center"><%= order_product.product_name %></td>
   <td class="sizing-table-order text-center"><%= order_product.product_category_name %></td>
   <td class="sizing-table-order text-center"><%= order_product.quantity %></td>
-  <td class="sizing-table-order text-center"><%= number_to_currency(order_product.current_price, precision: 0) %></td>
+  <td class="sizing-table-order text-center"><%= number_to_currency(order_product.current_price*1000000, precision: 0) %></td>
 </tr>
