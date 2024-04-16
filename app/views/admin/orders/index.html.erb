@@ -7,13 +7,12 @@
     <hr/>
     <div class="d-flex" id="main-top-order">
       <div class="container-main-mid-search">
-        <%= form_for(:order, method: :get) do |f| %>
-          <span class="ms-2"><%= t("admin.products.name")%></span>
-          <%= f.text_field :search %>
-          <%= f.button class: "p-2 pe-4 ps-4 text-center " do %>
-            <i class="bi bi-search text-black"></i>
+        <%= form_for(:search, method: :get) do |f| %>
+            <%= f.text_field :receiver_name_or_receiver_address_cont, value: params.dig(:search, :receiver_name_or_receiver_address_cont), placeholder: "Search by name, description", class:"ps-3 pe-3" %>
+            <%= f.button  class: "p-2 pe-4 ps-4 text-center " do %>
+              <i class="bi bi-search text-black"></i>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
       <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold" do %>
         <%= t("orders.remove_all") %>

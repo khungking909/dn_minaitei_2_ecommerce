@@ -11,7 +11,7 @@ class Ability
     if current_account.user?
       can(:read, Order, account_id: current_account.id)
       can(:create, Order, account_id: current_account.id)
-      can(:update, Order, account_id: current_account.id)
+      can(:cancel, Order, account_id: current_account.id)
       can(:create, Comment, account_id: current_account.id)
       cannot(:access_denied_user, :controller)
     elsif current_account.admin?

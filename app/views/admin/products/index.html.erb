@@ -12,15 +12,14 @@
     <div>
       <div class="d-flex">
         <div class="container-main-mid-search">
-          <%= form_for(:product, method: :get) do |f| %>
-            <span class="ms-2"><%= t("admin.products.name")%></span>
-            <%= f.text_field :search %>
-            <%= f.button class: "p-2 pe-4 ps-4 text-center " do %>
+          <%= form_for(:search, method: :get) do |f| %>
+            <%= f.text_field :name_or_description_or_category_name_cont, value: params.dig(:search, :name_or_description_or_category_name_cont), placeholder: "Search by name, description", class:"ps-3 pe-3" %>
+            <%= f.button  class: "p-2 pe-4 ps-4 text-center " do %>
               <i class="bi bi-search text-black"></i>
             <% end %>
           <% end %>
         </div>
-        <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold" do %>
+        <%= link_to "#", class:"ms-3 main-top-btn-add text-white bg-danger bg-gradient fw-bold d-flex align-items-center" do %>
           <%= t("admin.products.remove_all")%>
         <% end %>
       </div>
@@ -28,7 +27,7 @@
         <%= render "admin/layouts/flash_admin" %>
         <%= render "layouts/flash" %>
       </div>
-        <table class="mt-5 mb-5 table-products table table-striped d-flex flex-column align-items-center">
+        <table class="mt-5 mb-5 table-products table table-striped ">
           <thead>
             <tr class="d-flex">
               <th class="sizing-table-first-column text-center"><%= t("admin.products.ordinal_number") %></th>

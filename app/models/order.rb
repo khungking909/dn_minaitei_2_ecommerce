@@ -25,6 +25,14 @@ class Order < ApplicationRecord
     .where(orders: { status: Order.statuses[:approved] })
   end)
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[receiver_name receiver_address created_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[order_histories]
+  end
+
   belongs_to :account
   has_many :order_histories, dependent: :destroy
   has_many :products, through: :order_histories

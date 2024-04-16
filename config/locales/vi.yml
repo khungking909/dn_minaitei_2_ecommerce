@@ -7,7 +7,7 @@ vi:
     phone: "Điện thoại"
     pc: "Máy tính để bàn"
   input:
-    search: "Tìm kiếm"
+    search: "Tìm kiếm theo tên sản phẩm, Tên danh mục, Mô tả sản phẩm"
   button:
     search: "TÌM KIẾM"
   header:
@@ -42,6 +42,14 @@ vi:
       title: "Lọc"
       brand: "Thương hiệu"
       price: "Giá"
+      newest: "Mới nhất"
+      hoting: "Đang hot"
+      lowering_prices: "Đang hạ giá"
+      all: "Tất cả"
+      range_5_to_10: "5tr đến 10tr"
+      range_10_to_20: "10tr đến 20tr"
+      range_20_to_50: "20tr đến 50tr"
+      range_50_to_100: "50tr đến 100tr"
     insert: "SẢN PHẨM MỚI"
     list_title: "DANH SÁCH (%{num})"
     name: "Tên"

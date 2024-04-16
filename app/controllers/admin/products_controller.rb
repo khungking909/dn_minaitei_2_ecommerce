@@ -5,7 +5,7 @@ class Admin::ProductsController < Admin::AdminController
   skip_load_resource only: %i(index new create)
 
   def index
-    @pagy, @products = pagy(filter_products, items: Settings.DIGIT_5)
+    @pagy, @products = pagy(Product.ransack(params[:search]).result, items: Settings.DIGIT_5)
     @top_10_outstanding ||= Product.product_outstanding
   end
 
@@ -44,11 +44,6 @@ class Admin::ProductsController < Admin::AdminController
   end
 
   private
-
-  def filter_products
-    Product.search_by_name(params.dig(:product, :search))
-           .get_all_by_name_sort
-  end
 
   def product_params
     params.require(:product).permit(:name, :price, :quantity, :category_id, :image, :description)
