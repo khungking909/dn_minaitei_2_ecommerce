@@ -3,22 +3,34 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(current_account)
-    can(:read, Product)
+  def initialize(current_account, controller_namespace)
+    case controller_namespace
+    when Settings.ADMIN_NAMESPACE
+      cannot(:read, Product)
+      return if current_account.blank? || current_account.user?
 
-    return if current_account.blank?
+      if current_account.admin?
+        can(:manage, :all)
+      else
+        current_account.manager?
+        can(:manage, :all)
+        cannot(:access_denied, :controller)
+      end
+    else
+      can(:read, Product)
+      return if current_account.blank?
 
-    if current_account.user?
-      can(:read, Order, account_id: current_account.id)
-      can(:create, Order, account_id: current_account.id)
-      can(:cancel, Order, account_id: current_account.id)
-      can(:create, Comment, account_id: current_account.id)
-      cannot(:access_denied_user, :controller)
-    elsif current_account.admin?
-      can(:manage, :all)
-    elsif current_account.manager?
-      can(:manage, :all)
-      cannot(:access_denied, :controller)
+      if current_account.user?
+        can(:read, Order, account_id: current_account.id)
+        can(:create, Order, account_id: current_account.id)
+        can(:cancel, Order, account_id: current_account.id)
+        can(:create, Comment, account_id: current_account.id)
+      elsif current_account.admin?
+        can(:manage, :all)
+      elsif current_account.manager?
+        can(:manage, :all)
+        cannot(:access_denied, :controller)
+      end
     end
 
     #

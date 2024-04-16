@@ -1,4 +1,7 @@
 <% provide :title, t("header.home") %>
+<div class="container">
+  <%= render "shared/search" %>
+</div>
 <div class="container content text-center">
   <% if flash %>
     <%= render "layouts/flash" %>

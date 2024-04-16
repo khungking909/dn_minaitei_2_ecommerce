@@ -36,7 +36,7 @@
 /config/database.yml
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+dump.rdb
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml

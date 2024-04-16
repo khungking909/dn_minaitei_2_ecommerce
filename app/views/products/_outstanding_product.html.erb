@@ -22,7 +22,7 @@
                   <% end %>
                   <span>(<%= rating %>)</span>
                 </div>
-              <p><%= number_to_currency(product.price) %></p>
+              <p><%= number_to_currency(product.price, precision: 0) %></p>
             </div>
           </div>
         </div>

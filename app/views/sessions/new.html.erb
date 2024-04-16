@@ -6,13 +6,19 @@
       <%= render "layouts/flash" %>
       <%= f.email_field :email, placeholder: t("place_holder.email"), class: "glyphicon" %>
       <%= f.password_field :password, placeholder: t("place_holder.password"), class: "glyphicon" %>
+      <% if devise_mapping.rememberable? %>
+        <div class="field d-flex align-items-center">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me , class:"ms-2"%>
+        </div>
+      <% end %>
       <div>
         <%= link_to t("sessions.foget_password") , new_account_password_path, class: "forget_password_link"%>
         <%= f.submit uppercase(t("sessions.submit_btn")), class:"form-btn-submit" %>
       </div>
     <% end %>
     <%= link_to  account_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-lg btn-block btn-primary mt-3 w-100", style: "background-color: #dd4b39;" do %>
-      <%= uppercase t("oauthes.google") %>
+      <i class="bi bi-google me-2"></i> <%= uppercase t("oauthes.google") %>
     <% end %>
   </div>
   <div class="col-md-4 offset-md-2">

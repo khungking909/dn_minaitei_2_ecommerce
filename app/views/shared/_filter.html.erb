@@ -6,8 +6,8 @@
     </div>
 
     <div class="mb-3 d-flex align-items-center">
-      <%= f.label :price_in, t("products.filter.price"), class: "form-label mt-1 me-2" %>
-      <%= f.select :price_in, options_for_select(all_select_price_search_product, selected: params.dig(:search, :price_in) ? params.dig(:search, :price_in) : "" ), class: "form-select" %>
+      <%= f.label :price_between, t("products.filter.price"), class: "form-label mt-1 me-2" %>
+      <%= f.select :price_between, options_for_select(all_select_price_search_product, selected: params.dig(:search, :price_between) ? params.dig(:search, :price_between) : "" ), class: "form-select" %>
     </div>
 
     <div class="mb-3 d-flex align-items-center">

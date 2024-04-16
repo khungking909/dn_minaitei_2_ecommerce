@@ -6,7 +6,7 @@ class Admin::OrdersController < Admin::AdminController
   before_action :check_status, only: :update
 
   def index
-    @pagy, @orders = pagy(Order.ransack(params[:search]).result, items: Settings.DIGIT_2)
+    @pagy, @orders = pagy(Order.ransack(params[:search]).result.order_by_status, items: Settings.DIGIT_2)
   end
 
   def show

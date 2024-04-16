@@ -17,7 +17,7 @@
             <%= link_to t("header.account"), "", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", data: {toggle: "dropdown", target: "#navbarDropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to t("header.profile"), "#", class: "dropdown-item" %>
-              <% if can? :access_denied_user, :controller %>
+              <% if can? :manage, :all %>
                 <%= link_to t("header.admin"), admin_products_path, class: "dropdown-item" %>
               <% end %>
               <%= link_to t("header.order"), orders_path, class: "dropdown-item" %>
@@ -39,6 +39,6 @@
     </div>
   </div>
 </nav>
-<div class="container">
-  <%= render "shared/search" %>
-</div>
+<br>
+<br>
+<br>

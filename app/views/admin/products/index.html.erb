@@ -1,7 +1,7 @@
 <div class="d-flex container-admin">
   <%= render "admin/layouts/sidebar" %>
   <aside class="col-md-10 ms-5" id="main" >
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center mt-3">
       <h2><%= t("admin.products.title") %></h2>
       <%= link_to  new_admin_product_path, id:"addButton", class:"open-modal main-top-btn-add text-white fw-bold d-flex align-items-center ms-3" do%>
         <i class="bi bi-plus fw-bold fs-3 me-1" ></i> <%= t("admin.products.insert")%>

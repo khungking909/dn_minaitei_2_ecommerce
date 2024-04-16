@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :handle_error_active_record_notfound!
 
   before_action :set_locale
-  before_action :load_ability
+  before_action :current_ability
   before_action :authorize_action
 
   def set_locale
@@ -21,8 +21,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def load_ability
-    @current_ability ||= Ability.new(current_account)
+  def current_ability
+    controller_name_segments = params[:controller].split("/")
+    controller_name_segments.pop
+    controller_namespace = controller_name_segments.join("/").camelize
+    @current_ability ||= Ability.new(current_account, controller_namespace)
   end
 
   def handle_error_access_denied!

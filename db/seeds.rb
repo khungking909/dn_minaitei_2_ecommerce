@@ -35,7 +35,8 @@ brands = %w[
     role: Account.roles[:user],
     address: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.phone_number,
-    encrypted_password: BCrypt::Password.create(Faker::Internet.password)
+    encrypted_password: BCrypt::Password.create(Faker::Internet.password),
+    confirmed_at: Time.current
   )
 end
 
@@ -72,7 +73,7 @@ end
       order_id: order.id,
       product_id: rand(1..Product.count),
       quantity: rand(1..5),
-      current_price: rand(5..200) * 1_000_000
+      current_price: rand(5..100)
     )
   end
 end
